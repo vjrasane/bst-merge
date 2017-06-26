@@ -1,0 +1,76 @@
+msNtdShortfalls.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE method SYSTEM "method.dtd">
+   <method parallel="no" parentId="METHOD_1434629102972_0">
+   	<class>Method</class>
+   	<description/>
+   	<activity-duration>02:00:00</activity-duration>
+   	<activity-name/>
+   	<mainline-enabled>true</mainline-enabled>
+   	<catalog-driven>false</catalog-driven>
+   	<input>
+   	</input>
+   	<output all="no">
+   	</output>
+   	<body>
+   		<exec id="STEP_1448345427373_0" jump0="0" jump1="1" name="msTidySriAtts">
+   			<instance_description/>
+   		</exec>
+   		<exec id="STEP_1447892904909_10" jump0="0" jump1="1" name="msSriNbnWorkParams">
+   			<instance_description/>
+   			<parameter name="REMOVE_AFTER_LIST"/>
+   			<parameter name="REMOVE_BEFORE_LIST"/>
+   			<parameter name="DEL_PARAM_LIST"/>
+   		</exec>
+   		<exec id="STEP_1447892904915_11" jump0="0" jump1="1" name="msCallSriNbnWork">
+   			<instance_description/>
+   			<parameter name="OUTPUT_PARAMETER_LIST">LIB(%) SHORTFALL(%)</parameter>
+   			<parameter name="CUT_PREFIX"/>
+   			<parameter name="IGNORE_LIBRARY_ERRORS">FALSE</parameter>
+   			<parameter name="PARAO_LIST"/>
+   			<parameter name="STARTS_WITH_LIST">SRI_</parameter>
+   			<parameter name="PARAM_LIST"/>
+   		</exec>
+   		<exec id="STEP_1447892904918_12" jump0="0" jump1="1" name="msIfEquals">
+   			<instance_description/>
+   			<parameter name="OPER1">($LIBRARY_STATUS)</parameter>
+   			<parameter name="OPER2">7</parameter>
+   		</exec>
+   		<exec id="STEP_1447892904923_13" jump0="2" jump1="1" name="msParamExists">
+   			<instance_description/>
+   			<parameter name="OPER1">SHORTFALL_1</parameter>
+   		</exec>
+   		<exec id="METHOD_1447892904928_3" jump0="0" jump1="2" name="msWaitForResolution">
+   			<instance_description/>
+   			<out_parameter name="ADD_TO_UPPER_LEVEL">LIB(%) UNDO(%) OUT(%) PENDER_HASHMAP_VALUE_2 PENDER_HASHMAP_VALUE_1 CLOSE_BY_MANUAL</out_parameter>
+   		</exec>
+   		<exec id="METHOD_1458890444523_1" jump0="0" jump1="0" name="msCreateCable_copy1">
+   			<instance_description/>
+   			<out_parameter name="ADD_TO_UPPER_LEVEL">LIB(%) UNDO(%) OUT(%)</out_parameter>
+   		</exec>
+   		<exec id="STEP_1459049876601_0" jump0="0" jump1="1" name="msIfEquals">
+   			<instance_description/>
+   			<parameter name="OPER1">($LIBRARY_STATUS)</parameter>
+   			<parameter name="OPER2">7</parameter>
+   		</exec>
+   		<exec id="STEP_1459049876663_1" jump0="-2" jump1="1" name="IF_3">
+   			<instance_description/>
+   			<parameter name="PARAM2">False</parameter>
+   			<parameter name="PARAM1">($CLOSE_BY_MANUAL)</parameter>
+   		</exec>
+   		<exec id="STEP_1459049876663_2" jump0="0" jump1="1" name="MapParameters_3">
+   			<instance_description/>
+   			<parameter name="REMOVE_AFTER_LIST"/>
+   			<parameter name="REMOVE_BEFORE_LIST"/>
+   			<parameter name="DEL_PARAM_LIST"/>
+   		</exec>
+   		<exec id="STEP_1459049876663_3" jump0="0" jump1="-4" name="NotifyAtlas">
+   			<instance_description/>
+   			<parameter name="OUTPUT_PARAMETER_LIST"/>
+   			<parameter name="CUT_PREFIX">ATLAS_</parameter>
+   			<parameter name="IGNORE_LIBRARY_ERRORS">FALSE</parameter>
+   			<parameter name="PARAO_LIST"/>
+   			<parameter name="STARTS_WITH_LIST"/>
+   			<parameter name="PARAM_LIST"/>
+   		</exec>
+   	</body>
+   </method>

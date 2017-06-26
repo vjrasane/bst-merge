@@ -1,0 +1,40 @@
+!java.util.TreeMap
+Step.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>Step</class>
+   	<description/>
+   	<activity-duration/>
+   	<activity-name/>
+   	<input>
+   		<parameter name="STEP_PARAM" overwrite="yes">step_param_value</parameter>
+        <parameter name="SECOND_STEP_PARAM" overwrite="yes">step_parameter_value</parameter>
+        <parameter name="EXEC_PARAM">exec_param_value</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   </step>
+main_method.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE method SYSTEM "method.dtd">
+   <method parallel="no">
+   	<class>Method</class>
+   	<description/>
+   	<activity-duration>00:01:00</activity-duration>
+   	<activity-name/>
+   	<mainline-enabled>true</mainline-enabled>
+   	<catalog-driven>false</catalog-driven>
+   	<input>
+   	</input>
+   	<output all="yes">
+   	</output>
+   	<body>
+   		<exec id="STEP_ID_0" jump0="0" jump1="1" name="Step">
+   			<instance_description/>
+   			<!-- parameter moved -->
+   		</exec>
+   		<exec id="STEP_ID_1" jump0="0" jump1="0" name="Step">
+   			<instance_description/>
+            <!-- parameter moved -->
+   		</exec>
+   	</body>
+   </method>

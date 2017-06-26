@@ -1,0 +1,2682 @@
+!java.util.TreeMap
+IF_1.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>IFBSTStep</class>
+   	<description/>
+   	<activity-duration/>
+   	<activity-name/>
+   	<input>
+   		<parameter name="CONDITION" overwrite="yes">equals "($PARAM1)" "7"</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+IF_1_copy1.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>IFBSTStep</class>
+   	<description/>
+   	<activity-duration/>
+   	<activity-name/>
+   	<input>
+   		<parameter name="CONDITION" overwrite="yes">equals "($PARAM1)" "7"</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+IF_2.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>IFBSTStep</class>
+   	<description/>
+   	<activity-duration/>
+   	<activity-name/>
+   	<input>
+   		<parameter name="CONDITION" overwrite="yes">equals "($PARAM1)" "($PARAM2)"</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+IF_2_copy1.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>IFBSTStep</class>
+   	<description/>
+   	<activity-duration/>
+   	<activity-name/>
+   	<input>
+   		<parameter name="CONDITION" overwrite="yes">equals "($PARAM1)" "($PARAM2)"</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+IF_3.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>IFBSTStep</class>
+   	<description/>
+   	<activity-duration/>
+   	<activity-name/>
+   	<input>
+   		<parameter name="CONDITION" overwrite="yes">sequals "($PARAM1)" "($PARAM2)"</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+IF_3_copy1.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>IFBSTStep</class>
+   	<description/>
+   	<activity-duration/>
+   	<activity-name/>
+   	<input>
+   		<parameter name="CONDITION" overwrite="yes">sequals "($PARAM1)" "($PARAM2)"</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+MapParameters_1.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>MapParametersBSTStep</class>
+   	<description/>
+   	<activity-duration/>
+   	<activity-name/>
+   	<input>
+   		<parameter name="CM_WORK_QUEUE" overwrite="yes">ToW</parameter>
+   		<parameter name="CM_REQ_ID" overwrite="yes">($REQUEST_ID)</parameter>
+   		<parameter name="CM_COM_nbn_order_id" overwrite="yes">($COM_nbn_order_id)</parameter>
+   		<parameter name="CM_CORRELATION_ID" overwrite="yes">($COM_order_correlation_id)</parameter>
+   		<parameter name="CM_FORM" overwrite="yes">cableModemNotificationNotreceived</parameter>
+   		<parameter name="MAP_REMOVE_DEF_VAL_NOT_FOUND_PARAMETER" overwrite="yes">TRUE</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+MapParameters_1_copy1.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>MapParametersBSTStep</class>
+   	<description/>
+   	<activity-duration/>
+   	<activity-name/>
+   	<input>
+   		<parameter name="CM_WORK_QUEUE" overwrite="yes">TOW</parameter>
+   		<parameter name="CM_CORRELATION_ID" overwrite="yes">($COM_order_correlation_id)</parameter>
+   		<parameter name="CM_FORM_NAME" overwrite="yes">cableModemNotificationNotreceived</parameter>
+   		<parameter name="MAP_REMOVE_DEF_VAL_NOT_FOUND_PARAMETER" overwrite="yes">TRUE</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+MapParameters_2.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>MapParametersBSTStep</class>
+   	<description/>
+   	<activity-duration/>
+   	<activity-name/>
+   	<input>
+   		<parameter name="SRI11_OUTPUT_FORMAT" overwrite="yes">parameters</parameter>
+   		<parameter name="SRI11_NE_ID" overwrite="yes">SRI_HFS</parameter>
+   		<parameter name="MAP_REMOVE_DEF_VAL_NOT_FOUND_PARAMETER" overwrite="yes">TRUE</parameter>
+   		<parameter name="SRI11_REQ_OBJ" overwrite="yes">4</parameter>
+   		<parameter name="SRI11_UOR" overwrite="yes">cose://com.comptel.nbn.util.NbnUtil?name=NBNCRUD</parameter>
+   		<parameter name="SRI11_ACTION_NAME" overwrite="yes">UpdateSubmitActivationObject</parameter>
+   		<parameter name="SRI11_ATTRIBUTE_NAME_1" overwrite="yes">orderid</parameter>
+   		<parameter name="SRI11_ATTRIBUTE_NAME_2" overwrite="yes">closedbymanual</parameter>
+   		<parameter name="SRI11_MAPPING_CONTEXT" overwrite="yes">cdoa.xsl</parameter>
+   		<parameter name="SRI11_ATTRIBUTE_VALUE_2" overwrite="yes">($CLOSE_BY_MANUAL)</parameter>
+   		<parameter name="SRI11_NE_TYPE" overwrite="yes">SRI</parameter>
+   		<parameter name="SRI11_REQ_TYPE" overwrite="yes">1</parameter>
+   		<parameter name="SRI11_ATTRIBUTE_VALUE_1" overwrite="yes">($COM_nbn_order_id)</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+MapParameters_2_copy1.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>MapParametersBSTStep</class>
+   	<description/>
+   	<activity-duration/>
+   	<activity-name/>
+   	<input>
+   		<parameter name="SRI_UOR" overwrite="yes"/>
+   		<parameter name="SRI_ATTRIBUTE_NAME_1" overwrite="yes">orderid</parameter>
+   		<parameter name="SRI_REQ_TYPE" overwrite="yes">1</parameter>
+   		<parameter name="SRI_ATTRIBUTE_NAME_2" overwrite="yes">closedbymanual</parameter>
+   		<parameter name="SRI_NE_TYPE" overwrite="yes">SRI</parameter>
+   		<parameter name="MAP_REMOVE_DEF_VAL_NOT_FOUND_PARAMETER" overwrite="yes">TRUE</parameter>
+   		<parameter name="SRI_ACTION_NAME" overwrite="yes">UpdateNBNManageActivation</parameter>
+   		<parameter name="SRI_ATTRIBUTE_VALUE_1" overwrite="yes">($COM_nbn_order_id)</parameter>
+   		<parameter name="SRI_NE_ID" overwrite="yes">SRI_HFS</parameter>
+   		<parameter name="SRI_OUTPUT_FORMAT" overwrite="yes">PARAMETERS</parameter>
+   		<parameter name="SRI_ATTRIBUTE_VALUE_2" overwrite="yes">($CLOSE_BY_MANUAL)</parameter>
+   		<parameter name="SRI_MAPPING_CONTEXT" overwrite="yes">cdoa.xsl</parameter>
+   		<parameter name="SRI_REQ_OBJ" overwrite="yes">4</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+MapParameters_3.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>MapParametersBSTStep</class>
+   	<description/>
+   	<activity-duration/>
+   	<activity-name/>
+   	<input>
+   		<parameter name="ATLAS_sa_req_correlation_id" overwrite="yes">($PENDER_HASHMAP_VALUE_2)</parameter>
+   		<parameter name="ATLAS_order_id" overwrite="yes">($COM_nbn_order_id)</parameter>
+   		<parameter name="ATLAS_MAC_ADDRESS" overwrite="yes">($PENDER_HASHMAP_VALUE_1)</parameter>
+   		<parameter name="ATLAS_Scenario_name" overwrite="yes">ACK Message</parameter>
+   		<parameter name="MAP_REMOVE_DEF_VAL_NOT_FOUND_PARAMETER" overwrite="yes">TRUE</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+MapParameters_3_copy1.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>MapParametersBSTStep</class>
+   	<description/>
+   	<activity-duration/>
+   	<activity-name/>
+   	<input>
+   		<parameter name="ATLAS_sa_req_correlation_id" overwrite="yes">($FUSE_CORRELATION_ID)</parameter>
+   		<parameter name="ATLAS_MAC_ADDRESS" overwrite="yes">($MAC_ADDRESS)</parameter>
+   		<parameter name="ATLAS_Scenario_name" overwrite="yes">ACK Message</parameter>
+   		<parameter name="MAP_REMOVE_DEF_VAL_NOT_FOUND_PARAMETER" overwrite="yes">TRUE</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+MapParameters_4.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>MapParametersBSTStep</class>
+   	<description/>
+   	<activity-duration/>
+   	<activity-name/>
+   	<input>
+   		<parameter name="MAP_REMOVE_DEF_VAL_NOT_FOUND_PARAMETER" overwrite="yes">TRUE</parameter>
+   		<parameter name="IN_mac_address" overwrite="yes">($PENDER_HASHMAP_VALUE_1)</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+MapParameters_4_copy1.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>MapParametersBSTStep</class>
+   	<description/>
+   	<activity-duration/>
+   	<activity-name/>
+   	<input>
+   		<parameter name="MAP_REMOVE_DEF_VAL_NOT_FOUND_PARAMETER" overwrite="yes">TRUE</parameter>
+   		<parameter name="IN_mac_address" overwrite="yes">($MANUAL_IN_mac_address)</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+NotifyAtlas.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>LogicLibraryBSTStep</class>
+   	<description/>
+   	<activity-duration>00:00:00</activity-duration>
+   	<activity-name/>
+   	<input>
+   		<parameter name="ADD_ALL_PARAMS_TO_CHILD" overwrite="yes">FALSE</parameter>
+   		<parameter name="GET_ALL_RESP_PARAMS" overwrite="yes">FALSE</parameter>
+   		<parameter name="LIBRARY_LOGIC" overwrite="yes">LIB_NBN_NOTIFY_ATLAS</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+NotifyAtlas_copy1.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>LogicLibraryBSTStep</class>
+   	<description/>
+   	<activity-duration>00:00:00</activity-duration>
+   	<activity-name/>
+   	<input>
+   		<parameter name="ADD_ALL_PARAMS_TO_CHILD" overwrite="yes">FALSE</parameter>
+   		<parameter name="GET_ALL_RESP_PARAMS" overwrite="yes">FALSE</parameter>
+   		<parameter name="LIBRARY_LOGIC" overwrite="yes">LIB_NBN_NOTIFY_ATLAS</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+SendToNe_1.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>SendToNeBSTStep</class>
+   	<description/>
+   	<activity-duration>00:00:00</activity-duration>
+   	<activity-name/>
+   	<input>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+SendToNe_1_copy1.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>SendToNeBSTStep</class>
+   	<description/>
+   	<activity-duration>00:00:00</activity-duration>
+   	<activity-name/>
+   	<input>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+String_1_copy1.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>StringBSTStep</class>
+   	<description/>
+   	<activity-duration/>
+   	<activity-name/>
+   	<input>
+   		<parameter name="PARAM_2_1" overwrite="yes">($PARAM1)</parameter>
+   		<parameter name="PARAM_1_1" overwrite="yes">7</parameter>
+   		<parameter name="OPER_1" overwrite="yes">removePrefix</parameter>
+   	</input>
+   	<output all="no">
+   		<parameter name="macaddress">($RESULT_1)</parameter>
+   	</output>
+   	
+   </step>
+main_method.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE method SYSTEM "method.dtd">
+   <method parallel="no">
+   	<class>Method</class>
+   	<description/>
+   	<activity-duration>02:00:00</activity-duration>
+   	<activity-name/>
+   	<mainline-enabled>true</mainline-enabled>
+   	<catalog-driven>false</catalog-driven>
+   	<input>
+   	</input>
+   	<output all="no">
+   	</output>
+   	<body>
+   		<exec id="METHOD_1434629102972_0" jump0="0" jump1="0" name="msManageShortfalls">
+   			<instance_description/>
+   			<out_parameter name="ADD_TO_UPPER_LEVEL">LIB(%) UNDO(%) OUT(%)</out_parameter>
+   		</exec>
+   	</body>
+   </method>
+msAppointmentRecreate.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>LogicLibraryBSTStep</class>
+   	<description/>
+   	<activity-duration>00:00:00</activity-duration>
+   	<activity-name/>
+   	<input>
+   		<parameter name="ADD_ALL_PARAMS_TO_CHILD" overwrite="yes">FALSE</parameter>
+   		<parameter name="GET_ALL_RESP_PARAMS" overwrite="yes">TRUE</parameter>
+   		<parameter name="ADD_RESP_PREFIX" overwrite="yes">($LIB_RESP_PREFIX)</parameter>
+   		<parameter name="LIBRARY_LOGIC" overwrite="yes">LIB_NBN_APPOINTMENT_RECREATE</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+msAppointmentRecreate_copy1.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>LogicLibraryBSTStep</class>
+   	<description/>
+   	<activity-duration>00:00:00</activity-duration>
+   	<activity-name/>
+   	<input>
+   		<parameter name="ADD_ALL_PARAMS_TO_CHILD" overwrite="yes">FALSE</parameter>
+   		<parameter name="GET_ALL_RESP_PARAMS" overwrite="yes">TRUE</parameter>
+   		<parameter name="ADD_RESP_PREFIX" overwrite="yes">($LIB_RESP_PREFIX)</parameter>
+   		<parameter name="LIBRARY_LOGIC" overwrite="yes">LIB_NBN_APPOINTMENT_RECREATE</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+msAppointmentReschedule.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>LogicLibraryBSTStep</class>
+   	<description/>
+   	<activity-duration>00:00:00</activity-duration>
+   	<activity-name/>
+   	<input>
+   		<parameter name="ADD_ALL_PARAMS_TO_CHILD" overwrite="yes">FALSE</parameter>
+   		<parameter name="GET_ALL_RESP_PARAMS" overwrite="yes">TRUE</parameter>
+   		<parameter name="ADD_RESP_PREFIX" overwrite="yes">($LIB_RESP_PREFIX)</parameter>
+   		<parameter name="LIBRARY_LOGIC" overwrite="yes">LIB_NBN_APPOINTMENT_RESCHEDULE</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+msAppointmentReschedule_copy1.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>LogicLibraryBSTStep</class>
+   	<description/>
+   	<activity-duration>00:00:00</activity-duration>
+   	<activity-name/>
+   	<input>
+   		<parameter name="ADD_ALL_PARAMS_TO_CHILD" overwrite="yes">FALSE</parameter>
+   		<parameter name="GET_ALL_RESP_PARAMS" overwrite="yes">TRUE</parameter>
+   		<parameter name="ADD_RESP_PREFIX" overwrite="yes">($LIB_RESP_PREFIX)</parameter>
+   		<parameter name="LIBRARY_LOGIC" overwrite="yes">LIB_NBN_APPOINTMENT_RESCHEDULE</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+msAssignParameters.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>MapParametersBSTStep</class>
+   	<description/>
+   	<activity-duration/>
+   	<activity-name/>
+   	<input>
+   		<parameter name="MAP_REMOVE_DEF_VAL_NOT_FOUND_PARAMETER" overwrite="yes">TRUE</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+msAssignParameters_copy1.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>MapParametersBSTStep</class>
+   	<description/>
+   	<activity-duration/>
+   	<activity-name/>
+   	<input>
+   		<parameter name="MAP_REMOVE_DEF_VAL_NOT_FOUND_PARAMETER" overwrite="yes">TRUE</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+msAssignParameters_copy2.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>MapParametersBSTStep</class>
+   	<description/>
+   	<activity-duration/>
+   	<activity-name/>
+   	<input>
+   		<parameter name="MAP_REMOVE_DEF_VAL_NOT_FOUND_PARAMETER" overwrite="yes">TRUE</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+msCallSriDeleteToW.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>LogicLibraryBSTStep</class>
+   	<description/>
+   	<activity-duration>00:00:00</activity-duration>
+   	<activity-name/>
+   	<input>
+   		<parameter name="ADD_ALL_PARAMS_TO_CHILD" overwrite="yes">FALSE</parameter>
+   		<parameter name="GET_ALL_RESP_PARAMS" overwrite="yes">FALSE</parameter>
+   		<parameter name="LIBRARY_LOGIC" overwrite="yes">LIB_NBN_SRI</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+msCallSriNbnWork.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>LogicLibraryBSTStep</class>
+   	<description/>
+   	<activity-duration>00:00:00</activity-duration>
+   	<activity-name/>
+   	<input>
+   		<parameter name="ADD_ALL_PARAMS_TO_CHILD" overwrite="yes">FALSE</parameter>
+   		<parameter name="GET_ALL_RESP_PARAMS" overwrite="yes">FALSE</parameter>
+   		<parameter name="LIBRARY_LOGIC" overwrite="yes">LIB_NBN_SRI</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+msClassBranch.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>BranchBSTStep</class>
+   	<description/>
+   	<activity-duration/>
+   	<activity-name/>
+   	<input>
+   		<parameter name="CONDITION1" overwrite="yes">sequals "($OPER1)" "HFC_NTD"</parameter>
+   		<parameter name="CONDITION_NAME1" overwrite="yes">HFC_NTD</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+msConfigureCable.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>LogicLibraryBSTStep</class>
+   	<description/>
+   	<activity-duration/>
+   	<activity-name/>
+   	<input>
+   		<parameter name="ADD_ALL_PARAMS_TO_CHILD" overwrite="yes">FALSE</parameter>
+   		<parameter name="GET_ALL_RESP_PARAMS" overwrite="yes">FALSE</parameter>
+   		<parameter name="LIBRARY_LOGIC" overwrite="yes">LIB_NBN_CONFIGURE</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+msConfigureCable_copy1.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>LogicLibraryBSTStep</class>
+   	<description/>
+   	<activity-duration/>
+   	<activity-name/>
+   	<input>
+   		<parameter name="ADD_ALL_PARAMS_TO_CHILD" overwrite="yes">FALSE</parameter>
+   		<parameter name="GET_ALL_RESP_PARAMS" overwrite="yes">FALSE</parameter>
+   		<parameter name="LIBRARY_LOGIC" overwrite="yes">LIB_NBN_CONFIGURE</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+msConnectNextAction.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>BranchBSTStep</class>
+   	<description/>
+   	<activity-duration/>
+   	<activity-name/>
+   	<input>
+   		<parameter name="CONDITION_NAME5" overwrite="yes">Held</parameter>
+   		<parameter name="CONDITION_NAME3" overwrite="yes">Reschedule</parameter>
+   		<parameter name="CONDITION_NAME4" overwrite="yes">Recreate</parameter>
+   		<parameter name="CONDITION5" overwrite="yes">sequals "($OPER1)" "held"</parameter>
+   		<parameter name="CONDITION_NAME1" overwrite="yes">Continue</parameter>
+   		<parameter name="CONDITION_NAME2" overwrite="yes">Cancel</parameter>
+   		<parameter name="CONDITION3" overwrite="yes">sequals "($OPER1)" "reschedule"</parameter>
+   		<parameter name="CONDITION4" overwrite="yes">sequals "($OPER1)" "recreate"</parameter>
+   		<parameter name="CONDITION1" overwrite="yes">sequals "($OPER1)" "continue"</parameter>
+   		<parameter name="CONDITION2" overwrite="yes">sequals "($OPER1)" "cancel"</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+msConnectNextAction_copy1.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>BranchBSTStep</class>
+   	<description/>
+   	<activity-duration/>
+   	<activity-name/>
+   	<input>
+   		<parameter name="CONDITION_NAME5" overwrite="yes">Held</parameter>
+   		<parameter name="CONDITION_NAME3" overwrite="yes">Reschedule</parameter>
+   		<parameter name="CONDITION_NAME4" overwrite="yes">Recreate</parameter>
+   		<parameter name="CONDITION5" overwrite="yes">sequals "($OPER1)" "held"</parameter>
+   		<parameter name="CONDITION_NAME1" overwrite="yes">Continue</parameter>
+   		<parameter name="CONDITION_NAME2" overwrite="yes">Cancel</parameter>
+   		<parameter name="CONDITION3" overwrite="yes">sequals "($OPER1)" "reschedule"</parameter>
+   		<parameter name="CONDITION4" overwrite="yes">sequals "($OPER1)" "recreate"</parameter>
+   		<parameter name="CONDITION1" overwrite="yes">sequals "($OPER1)" "continue"</parameter>
+   		<parameter name="CONDITION2" overwrite="yes">sequals "($OPER1)" "cancel"</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+msCreateCable.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE method SYSTEM "method.dtd">
+   <method parallel="no" parentId="METHOD_1447892859667_1">
+   	<class>Method</class>
+   	<description/>
+   	<activity-duration>00:00:00</activity-duration>
+   	<activity-name/>
+   	<mainline-enabled>true</mainline-enabled>
+   	<catalog-driven>false</catalog-driven>
+   	<input>
+   	</input>
+   	<output all="no">
+   	</output>
+   	<body>
+   		<exec id="STEP_1448349532612_8" jump0="0" jump1="1" name="msSetupConfigureCable">
+   			<instance_description/>
+   			<parameter name="REMOVE_AFTER_LIST"/>
+   			<parameter name="REMOVE_BEFORE_LIST"/>
+   			<parameter name="DEL_PARAM_LIST"/>
+   		</exec>
+   		<exec id="STEP_1448350092846_9" jump0="0" jump1="0" name="msConfigureCable">
+   			<instance_description/>
+   			<parameter name="OUTPUT_PARAMETER_LIST">LIB(%) UNDO(%)</parameter>
+   			<parameter name="CUT_PREFIX">CAB_</parameter>
+   			<parameter name="IGNORE_LIBRARY_ERRORS">FALSE</parameter>
+   			<parameter name="PARAO_LIST">REQUEST_ID</parameter>
+   			<parameter name="STARTS_WITH_LIST">UNDO(%)</parameter>
+   			<parameter name="PARAM_LIST"/>
+   		</exec>
+   	</body>
+   </method>
+msCreateCable_copy1.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE method SYSTEM "method.dtd">
+   <method parallel="no" parentId="METHOD_1447892859667_1">
+   	<class>Method</class>
+   	<description/>
+   	<activity-duration>01:00:00</activity-duration>
+   	<activity-name/>
+   	<mainline-enabled>true</mainline-enabled>
+   	<catalog-driven>false</catalog-driven>
+   	<input>
+   	</input>
+   	<output all="no">
+   	</output>
+   	<body>
+   		<exec id="STEP_1458890444773_51" jump0="0" jump1="1" name="msSetupConfigureCable_copy1">
+   			<instance_description/>
+   			<parameter name="REMOVE_AFTER_LIST"/>
+   			<parameter name="REMOVE_BEFORE_LIST"/>
+   			<parameter name="DEL_PARAM_LIST"/>
+   		</exec>
+   		<exec id="STEP_1458890444773_52" jump0="0" jump1="2" name="msConfigureCable_copy1">
+   			<instance_description/>
+   			<parameter name="OUTPUT_PARAMETER_LIST">LIB(%) UNDO(%)</parameter>
+   			<parameter name="CUT_PREFIX">CAB_</parameter>
+   			<parameter name="IGNORE_LIBRARY_ERRORS">FALSE</parameter>
+   			<parameter name="PARAO_LIST">REQUEST_ID</parameter>
+   			<parameter name="STARTS_WITH_LIST">UNDO(%)</parameter>
+   			<parameter name="PARAM_LIST"/>
+   		</exec>
+   		<exec id="STEP_1459049992528_4" jump0="0" jump1="0" name="waitforcablemodemnotification">
+   			<instance_description/>
+   			<parameter name="OUTPUT_PARAMETER_LIST"/>
+   			<parameter name="CUT_PREFIX">CM_</parameter>
+   			<parameter name="IGNORE_LIBRARY_ERRORS">FALSE</parameter>
+   			<parameter name="PARAO_LIST"/>
+   			<parameter name="STARTS_WITH_LIST"/>
+   			<parameter name="PARAM_LIST"/>
+   		</exec>
+   		<exec id="STEP_1459049992528_5" jump0="0" jump1="-1" name="MapParameters_1">
+   			<instance_description/>
+   			<parameter name="REMOVE_AFTER_LIST"/>
+   			<parameter name="REMOVE_BEFORE_LIST"/>
+   			<parameter name="DEL_PARAM_LIST"/>
+   		</exec>
+   	</body>
+   </method>
+msCreateToW.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE method SYSTEM "method.dtd">
+   <method parallel="no" parentId="METHOD_1449225933761_1">
+   	<class>Method</class>
+   	<description/>
+   	<activity-duration>00:00:00</activity-duration>
+   	<activity-name/>
+   	<mainline-enabled>true</mainline-enabled>
+   	<catalog-driven>false</catalog-driven>
+   	<input>
+   		<parameter name="LIB_PREFIX" overwrite="yes">LIB_TOW_</parameter>
+   		<parameter name="LIB_RESP_PREFIX" overwrite="yes">LIB_TOW_RESP_</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	<body>
+   		<exec id="STEP_1458258399451_11" jump0="0" jump1="6" name="msSriDeleteToW">
+   			<instance_description/>
+   			<parameter name="SRI_ATTRIBUTE_VALUE_1">cose://com.comptel.nbn.common.business_interaction.NbnWorkOrder?work_order_id=($IN_tow_id)</parameter>
+   			<parameter name="DEL_PARAM_LIST"/>
+   			<parameter name="SRI_ATTRIBUTE_NAME_1">uor</parameter>
+   			<parameter name="REMOVE_AFTER_LIST"/>
+   			<parameter name="REMOVE_BEFORE_LIST"/>
+   			<parameter name="SRI_CALL">CRUD_DELETE_OBJECT</parameter>
+   		</exec>
+   		<exec id="STEP_1458100827613_7" jump0="0" jump1="3" name="msAssignParameters">
+   			<instance_description/>
+   			<parameter name="($LIB_PREFIX)ORDER_STATUS">($COM_order_status)</parameter>
+   			<parameter name="($LIB_PREFIX)NTD_ID">($IN_ntd_id)</parameter>
+   			<parameter name="($LIB_PREFIX)NBN_ORDER_ID">($COM_nbn_order_id)</parameter>
+   			<parameter name="DEL_PARAM_LIST"/>
+   			<parameter name="REMOVE_AFTER_LIST"/>
+   			<parameter name="REMOVE_BEFORE_LIST"/>
+   			<parameter name="($LIB_PREFIX)APPOINTMENT_ID">($IN_appointment_id)</parameter>
+   			<parameter name="($LIB_PREFIX)LOCATION_ID">($IN_location_id)</parameter>
+   		</exec>
+   		<exec id="STEP_1458101435408_11" jump0="0" jump1="1" name="msCreateToWLib">
+   			<instance_description/>
+   			<parameter name="OUTPUT_PARAMETER_LIST">OUT(%) LIB(%)</parameter>
+   			<parameter name="CUT_PREFIX">($LIB_PREFIX)</parameter>
+   			<parameter name="IGNORE_LIBRARY_ERRORS">FALSE</parameter>
+   			<parameter name="PARAO_LIST">REQUEST_ID</parameter>
+   			<parameter name="STARTS_WITH_LIST">COM_</parameter>
+   			<parameter name="PARAM_LIST"/>
+   		</exec>
+   		<exec id="STEP_1458101612654_16" jump0="0" jump1="0" name="msAssignParameters">
+   			<instance_description/>
+   			<parameter name="DEL_PARAM_LIST"/>
+   			<parameter name="LIBRARY_REASON_CODE">($($LIB_RESP_PREFIX)LIBRARY_REASON_CODE)</parameter>
+   			<parameter name="LIBRARY_MESSAGE">($($LIB_RESP_PREFIX)LIBRARY_MESSAGE)</parameter>
+   			<parameter name="REMOVE_AFTER_LIST"/>
+   			<parameter name="LIBRARY_STATUS">($($LIB_RESP_PREFIX)LIBRARY_STATUS)</parameter>
+   			<parameter name="REMOVE_BEFORE_LIST"/>
+   			<parameter name="IN_tow_id">($($LIB_RESP_PREFIX)OUT_WORK_ORDER_ID)</parameter>
+   		</exec>
+   		<exec id="STEP_1458102244516_21" jump0="0" jump1="-2" name="msRegCreateShortfallTypeParams">
+   			<instance_description/>
+   		</exec>
+   		<exec id="STEP_1458258399452_13" jump0="0" jump1="-4" name="msIfEquals">
+   			<instance_description/>
+   			<parameter name="OPER1">($LIBRARY_STATUS)</parameter>
+   			<parameter name="OPER2">7</parameter>
+   		</exec>
+   		<exec id="STEP_1458258426586_15" jump0="0" jump1="-1" name="msCallSriDeleteToW">
+   			<instance_description/>
+   			<parameter name="OUTPUT_PARAMETER_LIST">LIB(%)</parameter>
+   			<parameter name="CUT_PREFIX"/>
+   			<parameter name="IGNORE_LIBRARY_ERRORS">FALSE</parameter>
+   			<parameter name="PARAO_LIST"/>
+   			<parameter name="STARTS_WITH_LIST">SRI_</parameter>
+   			<parameter name="PARAM_LIST"/>
+   		</exec>
+   	</body>
+   </method>
+msCreateToWLib.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>LogicLibraryBSTStep</class>
+   	<description/>
+   	<activity-duration>00:00:00</activity-duration>
+   	<activity-name/>
+   	<input>
+   		<parameter name="ADD_ALL_PARAMS_TO_CHILD" overwrite="yes">FALSE</parameter>
+   		<parameter name="GET_ALL_RESP_PARAMS" overwrite="yes">FALSE</parameter>
+   		<parameter name="LIBRARY_LOGIC" overwrite="yes">LIB_CREATE_ToW_LOGIC_REL_1_0_0</parameter>
+   		<parameter name="ADD_RESP_PREFIX" overwrite="yes">($LIB_RESP_PREFIX)</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+msExitOK.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>MapParametersBSTStep</class>
+   	<description/>
+   	<activity-duration/>
+   	<activity-name/>
+   	<input>
+   		<parameter name="MAP_REMOVE_DEF_VAL_NOT_FOUND_PARAMETER" overwrite="yes">TRUE</parameter>
+   		<parameter name="LIBRARY_STATUS" overwrite="yes">7</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+msFindModemParams.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>MapParametersBSTStep</class>
+   	<description/>
+   	<activity-duration/>
+   	<activity-name/>
+   	<input>
+   		<parameter name="SRI_ATTRIBUTE_VALUE_1" overwrite="yes">DocsisCableModem</parameter>
+   		<parameter name="SRI_ATTRIBUTE_VALUE_2" overwrite="yes">($IN_ntd_id)</parameter>
+   		<parameter name="SRI_ATTRIBUTE_NAME_1" overwrite="yes">className</parameter>
+   		<parameter name="SRI_ATTRIBUTE_NAME_2" overwrite="yes">name</parameter>
+   		<parameter name="MAP_REMOVE_DEF_VAL_NOT_FOUND_PARAMETER" overwrite="yes">TRUE</parameter>
+   		<parameter name="SRI_CALL" overwrite="yes">GET_OBJECT_BY_NAME</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+msFindModemParams_copy1.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>MapParametersBSTStep</class>
+   	<description/>
+   	<activity-duration/>
+   	<activity-name/>
+   	<input>
+   		<parameter name="SRI_ATTRIBUTE_VALUE_1" overwrite="yes">DocsisCableModem</parameter>
+   		<parameter name="SRI_ATTRIBUTE_VALUE_3" overwrite="yes">($REQUEST_ID)</parameter>
+   		<parameter name="SRI_ATTRIBUTE_VALUE_2" overwrite="yes">($IN_ntd_id)</parameter>
+   		<parameter name="SRI_ATTRIBUTE_NAME_1" overwrite="yes">className</parameter>
+   		<parameter name="SRI_ATTRIBUTE_NAME_3" overwrite="yes">transaction_id</parameter>
+   		<parameter name="SRI_ATTRIBUTE_NAME_2" overwrite="yes">name</parameter>
+   		<parameter name="MAP_REMOVE_DEF_VAL_NOT_FOUND_PARAMETER" overwrite="yes">TRUE</parameter>
+   		<parameter name="SRI_CALL" overwrite="yes">GET_OBJECT_BY_NAME</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+msIfEquals.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>IFBSTStep</class>
+   	<description/>
+   	<activity-duration/>
+   	<activity-name/>
+   	<input>
+   		<parameter name="CONDITION" overwrite="yes">sequals "($OPER1)" "($OPER2)"</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+msIfEquals_copy1.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>IFBSTStep</class>
+   	<description/>
+   	<activity-duration/>
+   	<activity-name/>
+   	<input>
+   		<parameter name="CONDITION" overwrite="yes">sequals "($OPER1)" "($OPER2)"</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+msIncrementLoopCounter.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>CalcBSTStep</class>
+   	<description/>
+   	<activity-duration/>
+   	<activity-name/>
+   	<input>
+   		<parameter name="RIGHT" overwrite="yes">1</parameter>
+   		<parameter name="OPER" overwrite="yes">add</parameter>
+   		<parameter name="LEFT" overwrite="yes">($LOOP_COUNTER)</parameter>
+   	</input>
+   	<output all="no">
+   		<parameter name="LOOP_COUNTER">($RESULT)</parameter>
+   	</output>
+   	
+   </step>
+msIncrementLoopCounter_copy1.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>CalcBSTStep</class>
+   	<description/>
+   	<activity-duration/>
+   	<activity-name/>
+   	<input>
+   		<parameter name="RIGHT" overwrite="yes">1</parameter>
+   		<parameter name="OPER" overwrite="yes">add</parameter>
+   		<parameter name="LEFT" overwrite="yes">($LOOP_COUNTER)</parameter>
+   	</input>
+   	<output all="no">
+   		<parameter name="LOOP_COUNTER">($RESULT)</parameter>
+   	</output>
+   	
+   </step>
+msInitLoopCounter.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>MapParametersBSTStep</class>
+   	<description/>
+   	<activity-duration/>
+   	<activity-name/>
+   	<input>
+   		<parameter name="LOOP_COUNTER" overwrite="yes">1</parameter>
+   		<parameter name="MAP_REMOVE_DEF_VAL_NOT_FOUND_PARAMETER" overwrite="yes">TRUE</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+msInitLoopCounter_copy1.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>MapParametersBSTStep</class>
+   	<description/>
+   	<activity-duration/>
+   	<activity-name/>
+   	<input>
+   		<parameter name="IN_mac_address" overwrite="yes">($MAC_ADDRESS)</parameter>
+   		<parameter name="LOOP_COUNTER" overwrite="yes">1</parameter>
+   		<parameter name="MAP_REMOVE_DEF_VAL_NOT_FOUND_PARAMETER" overwrite="yes">TRUE</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+msLookupUorBase.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>LookUpBSTStep</class>
+   	<description/>
+   	<activity-duration/>
+   	<activity-name/>
+   	<input>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+msLookupUorBase_copy1.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>LookUpBSTStep</class>
+   	<description/>
+   	<activity-duration/>
+   	<activity-name/>
+   	<input>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+msManageShortfalls.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE method SYSTEM "method.dtd">
+   <method parallel="no" parentId="main_method">
+   	<class>Method</class>
+   	<description/>
+   	<activity-duration>02:00:00</activity-duration>
+   	<activity-name/>
+   	<mainline-enabled>true</mainline-enabled>
+   	<catalog-driven>false</catalog-driven>
+   	<input>
+   	</input>
+   	<output all="no">
+   	</output>
+   	<body>
+   		<exec id="STEP_1449466274141_0" jump0="0" jump1="0" name="msOperationType">
+   			<jump index="1"/>
+   			<jump index="2"/>
+   			<instance_description/>
+   			<parameter name="OPER1">($IN_operationType)</parameter>
+   		</exec>
+   		<exec id="STEP_1447892767517_5" jump0="0" jump1="0" name="msClassBranch">
+   			<jump index="2"/>
+   			<jump index="1"/>
+   			<instance_description/>
+   			<parameter name="OPER1">($className)</parameter>
+   		</exec>
+   		<exec id="STEP_1447891650913_0" jump0="0" jump1="0" name="msExitOK">
+   			<instance_description/>
+   			<parameter name="REMOVE_AFTER_LIST"/>
+   			<parameter name="REMOVE_BEFORE_LIST"/>
+   			<parameter name="DEL_PARAM_LIST"/>
+   		</exec>
+   		<exec id="METHOD_1447892859667_1" jump0="0" jump1="0" name="msNtdShortfalls">
+   			<instance_description/>
+   			<out_parameter name="ADD_TO_UPPER_LEVEL">LIB(%) UNDO(%) OUT(%)</out_parameter>
+   		</exec>
+   	</body>
+   </method>
+msNtdShortfalls.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE method SYSTEM "method.dtd">
+   <method parallel="no" parentId="METHOD_1434629102972_0">
+   	<class>Method</class>
+   	<description/>
+   	<activity-duration>02:00:00</activity-duration>
+   	<activity-name/>
+   	<mainline-enabled>true</mainline-enabled>
+   	<catalog-driven>false</catalog-driven>
+   	<input>
+   	</input>
+   	<output all="no">
+   	</output>
+   	<body>
+   		<exec id="STEP_1448345427373_0" jump0="0" jump1="1" name="msTidySriAtts">
+   			<instance_description/>
+   		</exec>
+   		<exec id="STEP_1447892904909_10" jump0="0" jump1="1" name="msSriNbnWorkParams">
+   			<instance_description/>
+   			<parameter name="REMOVE_AFTER_LIST"/>
+   			<parameter name="REMOVE_BEFORE_LIST"/>
+   			<parameter name="DEL_PARAM_LIST"/>
+   		</exec>
+   		<exec id="STEP_1447892904915_11" jump0="0" jump1="1" name="msCallSriNbnWork">
+   			<instance_description/>
+   			<parameter name="OUTPUT_PARAMETER_LIST">LIB(%) SHORTFALL(%)</parameter>
+   			<parameter name="CUT_PREFIX"/>
+   			<parameter name="IGNORE_LIBRARY_ERRORS">FALSE</parameter>
+   			<parameter name="PARAO_LIST"/>
+   			<parameter name="STARTS_WITH_LIST">SRI_</parameter>
+   			<parameter name="PARAM_LIST"/>
+   		</exec>
+   		<exec id="STEP_1447892904918_12" jump0="0" jump1="1" name="msIfEquals">
+   			<instance_description/>
+   			<parameter name="OPER1">($LIBRARY_STATUS)</parameter>
+   			<parameter name="OPER2">7</parameter>
+   		</exec>
+   		<exec id="STEP_1447892904923_13" jump0="2" jump1="1" name="msParamExists">
+   			<instance_description/>
+   			<parameter name="OPER1">SHORTFALL_1</parameter>
+   		</exec>
+   		<exec id="METHOD_1447892904928_3" jump0="0" jump1="2" name="msWaitForResolution">
+   			<instance_description/>
+   			<out_parameter name="ADD_TO_UPPER_LEVEL">LIB(%) UNDO(%) OUT(%) PENDER_HASHMAP_VALUE_2 PENDER_HASHMAP_VALUE_1 CLOSE_BY_MANUAL</out_parameter>
+   		</exec>
+   		<exec id="METHOD_1458890444523_1" jump0="0" jump1="0" name="msCreateCable_copy1">
+   			<instance_description/>
+   			<out_parameter name="ADD_TO_UPPER_LEVEL">LIB(%) UNDO(%) OUT(%)</out_parameter>
+   		</exec>
+   		<exec id="STEP_1459049876601_0" jump0="0" jump1="1" name="msIfEquals">
+   			<instance_description/>
+   			<parameter name="OPER1">($LIBRARY_STATUS)</parameter>
+   			<parameter name="OPER2">7</parameter>
+   		</exec>
+   		<exec id="STEP_1459049876663_1" jump0="-2" jump1="1" name="IF_3">
+   			<instance_description/>
+   			<parameter name="PARAM2">False</parameter>
+   			<parameter name="PARAM1">($CLOSE_BY_MANUAL)</parameter>
+   		</exec>
+   		<exec id="STEP_1459049876663_2" jump0="0" jump1="1" name="MapParameters_3">
+   			<instance_description/>
+   			<parameter name="REMOVE_AFTER_LIST"/>
+   			<parameter name="REMOVE_BEFORE_LIST"/>
+   			<parameter name="DEL_PARAM_LIST"/>
+   		</exec>
+   		<exec id="STEP_1459049876663_3" jump0="0" jump1="-4" name="NotifyAtlas">
+   			<instance_description/>
+   			<parameter name="OUTPUT_PARAMETER_LIST"/>
+   			<parameter name="CUT_PREFIX">ATLAS_</parameter>
+   			<parameter name="IGNORE_LIBRARY_ERRORS">FALSE</parameter>
+   			<parameter name="PARAO_LIST"/>
+   			<parameter name="STARTS_WITH_LIST"/>
+   			<parameter name="PARAM_LIST"/>
+   		</exec>
+   	</body>
+   </method>
+msOperationType.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>BranchBSTStep</class>
+   	<description/>
+   	<activity-duration/>
+   	<activity-name/>
+   	<input>
+   		<parameter name="CONDITION1" overwrite="yes">sequals "($OPER1)" "CREATE"</parameter>
+   		<parameter name="CONDITION_NAME1" overwrite="yes">Create</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+msOrderHeld.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>LogicLibraryBSTStep</class>
+   	<description/>
+   	<activity-duration>00:00:00</activity-duration>
+   	<activity-name/>
+   	<input>
+   		<parameter name="ADD_ALL_PARAMS_TO_CHILD" overwrite="yes">FALSE</parameter>
+   		<parameter name="GET_ALL_RESP_PARAMS" overwrite="yes">TRUE</parameter>
+   		<parameter name="LIBRARY_LOGIC" overwrite="yes">LIB_NBN_HELD</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+msOrderHeld_copy1.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>LogicLibraryBSTStep</class>
+   	<description/>
+   	<activity-duration>00:00:00</activity-duration>
+   	<activity-name/>
+   	<input>
+   		<parameter name="ADD_ALL_PARAMS_TO_CHILD" overwrite="yes">FALSE</parameter>
+   		<parameter name="GET_ALL_RESP_PARAMS" overwrite="yes">TRUE</parameter>
+   		<parameter name="LIBRARY_LOGIC" overwrite="yes">LIB_NBN_HELD</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+msParamExists.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>IFBSTStep</class>
+   	<description/>
+   	<activity-duration/>
+   	<activity-name/>
+   	<input>
+   		<parameter name="CONDITION" overwrite="yes">paramsexist "($OPER1)"</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+msParamNotExist.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>IFBSTStep</class>
+   	<description/>
+   	<activity-duration/>
+   	<activity-name/>
+   	<input>
+   		<parameter name="CONDITION" overwrite="yes">paramsexist "($OPER1)" not</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+msParamNotExist_copy1.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>IFBSTStep</class>
+   	<description/>
+   	<activity-duration/>
+   	<activity-name/>
+   	<input>
+   		<parameter name="CONDITION" overwrite="yes">paramsexist "($OPER1)" not</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+msRecreateAppointment.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE method SYSTEM "method.dtd">
+   <method parallel="no" parentId="METHOD_1447892904928_3">
+   	<class>Method</class>
+   	<description/>
+   	<activity-duration>00:00:00</activity-duration>
+   	<activity-name/>
+   	<mainline-enabled>true</mainline-enabled>
+   	<catalog-driven>false</catalog-driven>
+   	<input>
+   		<parameter name="LIB_PREFIX" overwrite="yes">LIB_APPT_</parameter>
+   		<parameter name="LIB_RESP_PREFIX" overwrite="yes">LIB_APPT_RESP_</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	<body>
+   		<exec id="STEP_1449226150214_30" jump0="0" jump1="1" name="msAssignParameters">
+   			<instance_description/>
+   			<parameter name="($LIB_PREFIX)ORDER_NTD_ID">($IN_ntd_id)</parameter>
+   			<parameter name="($LIB_PREFIX)REASON_CODE">($@RESP_WFC@NBN_REASON_CODE)</parameter>
+   			<parameter name="($LIB_PREFIX)ORDER_LOCATION_ID">($IN_location_id)</parameter>
+   			<parameter name="($LIB_PREFIX)OPERATION">Connect</parameter>
+   			<parameter name="DEL_PARAM_LIST"/>
+   			<parameter name="($LIB_PREFIX)ORDER_ID">($COM_nbn_order_id)</parameter>
+   			<parameter name="REMOVE_AFTER_LIST"/>
+   			<parameter name="REMOVE_BEFORE_LIST"/>
+   			<parameter name="($LIB_PREFIX)APPOINTMENT_ID">($IN_appointment_id)</parameter>
+   		</exec>
+   		<exec id="STEP_1449226150214_31" jump0="0" jump1="2" name="msRegCreateShortfallParameters">
+   			<instance_description/>
+   		</exec>
+   		<exec id="STEP_1449226150214_32" jump0="0" jump1="2" name="msAssignParameters">
+   			<instance_description/>
+   			<parameter name="IN_appointment_date">($($LIB_RESP_PREFIX)APPOINTMENT_DATETIME)</parameter>
+   			<parameter name="IN_appointment_id">($($LIB_RESP_PREFIX)APPOINTMENT_ID)</parameter>
+   			<parameter name="DEL_PARAM_LIST"/>
+   			<parameter name="LIBRARY_REASON_CODE">($($LIB_RESP_PREFIX)LIBRARY_REASON_CODE)</parameter>
+   			<parameter name="LIBRARY_MESSAGE">($($LIB_RESP_PREFIX)LIBRARY_STATUS_MESSAGE)</parameter>
+   			<parameter name="REMOVE_AFTER_LIST"/>
+   			<parameter name="LIBRARY_STATUS">($($LIB_RESP_PREFIX)LIBRARY_STATUS)</parameter>
+   			<parameter name="OUT_appointment_id">($($LIB_RESP_PREFIX)APPOINTMENT_ID)</parameter>
+   			<parameter name="REMOVE_BEFORE_LIST"/>
+   		</exec>
+   		<exec id="STEP_1449226150214_33" jump0="0" jump1="-1" name="msAppointmentRecreate">
+   			<instance_description/>
+   			<parameter name="OUTPUT_PARAMETER_LIST"/>
+   			<parameter name="CUT_PREFIX">($LIB_PREFIX)</parameter>
+   			<parameter name="IGNORE_LIBRARY_ERRORS">FALSE</parameter>
+   			<parameter name="PARAO_LIST">REQUEST_ID</parameter>
+   			<parameter name="STARTS_WITH_LIST">COM_</parameter>
+   			<parameter name="PARAM_LIST"/>
+   		</exec>
+   		<exec id="STEP_1458100759200_3" jump0="0" jump1="1" name="msIfEquals">
+   			<instance_description/>
+   			<parameter name="OPER1">($LIBRARY_STATUS)</parameter>
+   			<parameter name="OPER2">7</parameter>
+   		</exec>
+   		<exec id="METHOD_1458100759201_2" jump0="0" jump1="0" name="msCreateToW">
+   			<instance_description/>
+   			<out_parameter name="ADD_TO_UPPER_LEVEL">LIB(%) IN(%) OUT(%)</out_parameter>
+   		</exec>
+   	</body>
+   </method>
+msRecreateAppointment_copy1.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE method SYSTEM "method.dtd">
+   <method parallel="no" parentId="METHOD_13">
+   	<class>Method</class>
+   	<description/>
+   	<activity-duration>00:00:00</activity-duration>
+   	<activity-name/>
+   	<mainline-enabled>true</mainline-enabled>
+   	<catalog-driven>false</catalog-driven>
+   	<input>
+   		<parameter name="LIB_PREFIX" overwrite="yes">LIB_APPT_</parameter>
+   		<parameter name="LIB_RESP_PREFIX" overwrite="yes">LIB_APPT_RESP_</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	<body>
+   		<exec id="STEP_1458890444757_45" jump0="0" jump1="1" name="msAssignParameters_copy1">
+   			<instance_description/>
+   			<parameter name="($LIB_PREFIX)ORDER_NTD_ID">($IN_ntd_id)</parameter>
+   			<parameter name="($LIB_PREFIX)REASON_CODE">($@RESP_WFC@NBN_REASON_CODE)</parameter>
+   			<parameter name="($LIB_PREFIX)ORDER_LOCATION_ID">($IN_location_id)</parameter>
+   			<parameter name="($LIB_PREFIX)OPERATION">Connect</parameter>
+   			<parameter name="DEL_PARAM_LIST"/>
+   			<parameter name="($LIB_PREFIX)ORDER_ID">($COM_nbn_order_id)</parameter>
+   			<parameter name="REMOVE_AFTER_LIST"/>
+   			<parameter name="REMOVE_BEFORE_LIST"/>
+   			<parameter name="($LIB_PREFIX)APPOINTMENT_ID">($IN_appointment_id)</parameter>
+   		</exec>
+   		<exec id="STEP_1458890444757_46" jump0="0" jump1="1" name="msRegCreateShortfallParameters_copy1">
+   			<instance_description/>
+   		</exec>
+   		<exec id="STEP_1458890444757_47" jump0="0" jump1="1" name="msAppointmentRecreate_copy1">
+   			<instance_description/>
+   			<parameter name="OUTPUT_PARAMETER_LIST"/>
+   			<parameter name="CUT_PREFIX">($LIB_PREFIX)</parameter>
+   			<parameter name="IGNORE_LIBRARY_ERRORS">FALSE</parameter>
+   			<parameter name="PARAO_LIST">REQUEST_ID</parameter>
+   			<parameter name="STARTS_WITH_LIST">COM_</parameter>
+   			<parameter name="PARAM_LIST"/>
+   		</exec>
+   		<exec id="STEP_1458890444757_48" jump0="0" jump1="0" name="msAssignParameters_copy1">
+   			<instance_description/>
+   			<parameter name="IN_appointment_date">($($LIB_RESP_PREFIX)APPOINTMENT_DATETIME)</parameter>
+   			<parameter name="IN_appointment_id">($($LIB_RESP_PREFIX)APPOINTMENT_ID)</parameter>
+   			<parameter name="DEL_PARAM_LIST"/>
+   			<parameter name="LIBRARY_REASON_CODE">($($LIB_RESP_PREFIX)LIBRARY_REASON_CODE)</parameter>
+   			<parameter name="LIBRARY_MESSAGE">($($LIB_RESP_PREFIX)LIBRARY_STATUS_MESSAGE)</parameter>
+   			<parameter name="REMOVE_AFTER_LIST"/>
+   			<parameter name="LIBRARY_STATUS">($($LIB_RESP_PREFIX)LIBRARY_STATUS)</parameter>
+   			<parameter name="REMOVE_BEFORE_LIST"/>
+   		</exec>
+   	</body>
+   </method>
+msRegCreateShortfallParameters.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>RegExpBSTStep</class>
+   	<description/>
+   	<activity-duration/>
+   	<activity-name/>
+   	<input>
+   		<parameter name="DEL_PARAMS" overwrite="yes">dont_del_params</parameter>
+   		<parameter name="LIMIT_REGEXP" overwrite="yes">FALSE</parameter>
+   		<parameter name="KEEP_ORIGINALS" overwrite="yes">TRUE</parameter>
+   		<parameter name="1_*" overwrite="yes">($LIB_PREFIX)SHORTFALL[(\1)].NAME,</parameter>
+   		<parameter name="REGEXP1" overwrite="yes">*,SHORTFALL_([0-9]+)</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+msRegCreateShortfallParameters_copy1.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>RegExpBSTStep</class>
+   	<description/>
+   	<activity-duration/>
+   	<activity-name/>
+   	<input>
+   		<parameter name="DEL_PARAMS" overwrite="yes">dont_del_params</parameter>
+   		<parameter name="LIMIT_REGEXP" overwrite="yes">FALSE</parameter>
+   		<parameter name="KEEP_ORIGINALS" overwrite="yes">TRUE</parameter>
+   		<parameter name="1_*" overwrite="yes">($LIB_PREFIX)SHORTFALL[(\1)].NAME,</parameter>
+   		<parameter name="REGEXP1" overwrite="yes">*,SHORTFALL_([0-9]+)</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+msRegCreateShortfallTypeParams.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>RegExpBSTStep</class>
+   	<description/>
+   	<activity-duration/>
+   	<activity-name/>
+   	<input>
+   		<parameter name="DEL_PARAMS" overwrite="yes">dont_del_params</parameter>
+   		<parameter name="LIMIT_REGEXP" overwrite="yes">FALSE</parameter>
+   		<parameter name="KEEP_ORIGINALS" overwrite="yes">TRUE</parameter>
+   		<parameter name="1_*" overwrite="yes">($LIB_PREFIX)SHORTFALL_TYPE_(\1),</parameter>
+   		<parameter name="REGEXP1" overwrite="yes">*,SHORTFALL_([0-9]+)</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+msRemoveParamsFromPool.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>MapParametersBSTStep</class>
+   	<description/>
+   	<activity-duration/>
+   	<activity-name/>
+   	<input>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+msRemoveParamsFromPool_copy1.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>MapParametersBSTStep</class>
+   	<description/>
+   	<activity-duration/>
+   	<activity-name/>
+   	<input>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+msRemoveParamsFromPool_copy2.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>MapParametersBSTStep</class>
+   	<description/>
+   	<activity-duration/>
+   	<activity-name/>
+   	<input>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+msRemoveParamsFromPool_copy3.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>MapParametersBSTStep</class>
+   	<description/>
+   	<activity-duration/>
+   	<activity-name/>
+   	<input>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+msRescheduleAppointment.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE method SYSTEM "method.dtd">
+   <method parallel="no" parentId="METHOD_1447892904928_3">
+   	<class>Method</class>
+   	<description/>
+   	<activity-duration>00:00:00</activity-duration>
+   	<activity-name/>
+   	<mainline-enabled>true</mainline-enabled>
+   	<catalog-driven>false</catalog-driven>
+   	<input>
+   		<parameter name="LIB_PREFIX" overwrite="yes">LIB_APPT_</parameter>
+   		<parameter name="LIB_RESP_PREFIX" overwrite="yes">LIB_APPT_RESP_</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	<body>
+   		<exec id="STEP_1449225909145_10" jump0="0" jump1="1" name="msAssignParameters">
+   			<instance_description/>
+   			<parameter name="($LIB_PREFIX)ORDER_NTD_ID">($IN_ntd_id)</parameter>
+   			<parameter name="($LIB_PREFIX)REASON_CODE">($@RESP_WFC@NBN_REASON_CODE)</parameter>
+   			<parameter name="($LIB_PREFIX)ORDER_LOCATION_ID">($IN_location_id)</parameter>
+   			<parameter name="($LIB_PREFIX)OPERATION">Connect</parameter>
+   			<parameter name="DEL_PARAM_LIST"/>
+   			<parameter name="($LIB_PREFIX)ORDER_ID">($COM_nbn_order_id)</parameter>
+   			<parameter name="REMOVE_AFTER_LIST"/>
+   			<parameter name="($LIB_PREFIX)REASON_DESCRIPTION">($@RESP_WFC@NBN_REASON_DESCRIPTION)</parameter>
+   			<parameter name="REMOVE_BEFORE_LIST"/>
+   			<parameter name="($LIB_PREFIX)APPOINTMENT_ID">($IN_appointment_id)</parameter>
+   		</exec>
+   		<exec id="STEP_1449225909145_11" jump0="0" jump1="1" name="msRegCreateShortfallParameters">
+   			<instance_description/>
+   		</exec>
+   		<exec id="STEP_1449225909145_12" jump0="0" jump1="1" name="msAppointmentReschedule">
+   			<instance_description/>
+   			<parameter name="OUTPUT_PARAMETER_LIST"/>
+   			<parameter name="CUT_PREFIX">($LIB_PREFIX)</parameter>
+   			<parameter name="IGNORE_LIBRARY_ERRORS">FALSE</parameter>
+   			<parameter name="PARAO_LIST">REQUEST_ID</parameter>
+   			<parameter name="STARTS_WITH_LIST">COM_</parameter>
+   			<parameter name="PARAM_LIST"/>
+   		</exec>
+   		<exec id="STEP_1449225909145_13" jump0="0" jump1="0" name="msAssignParameters">
+   			<instance_description/>
+   			<parameter name="IN_appointment_date">($($LIB_RESP_PREFIX)APPOINTMENT_DATETIME)</parameter>
+   			<parameter name="IN_appointment_id">($($LIB_RESP_PREFIX)APPOINTMENT_ID)</parameter>
+   			<parameter name="DEL_PARAM_LIST"/>
+   			<parameter name="LIBRARY_STATUS_MESSAGE">($($LIB_RESP_PREFIX)LIBRARY_STATUS_MESSAGE)</parameter>
+   			<parameter name="LIBRARY_REASON_CODE">($($LIB_RESP_PREFIX)LIBRARY_REASON_CODE)</parameter>
+   			<parameter name="REMOVE_AFTER_LIST"/>
+   			<parameter name="LIBRARY_STATUS">($($LIB_RESP_PREFIX)LIBRARY_STATUS)</parameter>
+   			<parameter name="REMOVE_BEFORE_LIST"/>
+   		</exec>
+   	</body>
+   </method>
+msRescheduleAppointment_copy1.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE method SYSTEM "method.dtd">
+   <method parallel="no" parentId="METHOD_13">
+   	<class>Method</class>
+   	<description/>
+   	<activity-duration>00:00:00</activity-duration>
+   	<activity-name/>
+   	<mainline-enabled>true</mainline-enabled>
+   	<catalog-driven>false</catalog-driven>
+   	<input>
+   		<parameter name="LIB_PREFIX" overwrite="yes">LIB_APPT_</parameter>
+   		<parameter name="LIB_RESP_PREFIX" overwrite="yes">LIB_APPT_RESP_</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	<body>
+   		<exec id="STEP_1458890444741_41" jump0="0" jump1="1" name="msAssignParameters_copy1">
+   			<instance_description/>
+   			<parameter name="($LIB_PREFIX)ORDER_NTD_ID">($IN_ntd_id)</parameter>
+   			<parameter name="($LIB_PREFIX)REASON_CODE">($@RESP_WFC@NBN_REASON_CODE)</parameter>
+   			<parameter name="($LIB_PREFIX)ORDER_LOCATION_ID">($IN_location_id)</parameter>
+   			<parameter name="($LIB_PREFIX)OPERATION">Connect</parameter>
+   			<parameter name="DEL_PARAM_LIST"/>
+   			<parameter name="($LIB_PREFIX)ORDER_ID">($COM_nbn_order_id)</parameter>
+   			<parameter name="REMOVE_AFTER_LIST"/>
+   			<parameter name="REMOVE_BEFORE_LIST"/>
+   			<parameter name="($LIB_PREFIX)APPOINTMENT_ID">($IN_appointment_id)</parameter>
+   		</exec>
+   		<exec id="STEP_1458890444741_42" jump0="0" jump1="1" name="msRegCreateShortfallParameters_copy1">
+   			<instance_description/>
+   		</exec>
+   		<exec id="STEP_1458890444741_43" jump0="0" jump1="1" name="msAppointmentReschedule_copy1">
+   			<instance_description/>
+   			<parameter name="OUTPUT_PARAMETER_LIST"/>
+   			<parameter name="CUT_PREFIX">($LIB_PREFIX)</parameter>
+   			<parameter name="IGNORE_LIBRARY_ERRORS">FALSE</parameter>
+   			<parameter name="PARAO_LIST">REQUEST_ID</parameter>
+   			<parameter name="STARTS_WITH_LIST">COM_</parameter>
+   			<parameter name="PARAM_LIST"/>
+   		</exec>
+   		<exec id="STEP_1458890444741_44" jump0="0" jump1="0" name="msAssignParameters_copy2">
+   			<instance_description/>
+   			<parameter name="IN_appointment_date">($($LIB_RESP_PREFIX)APPOINTMENT_DATETIME)</parameter>
+   			<parameter name="IN_appointment_id">($($LIB_RESP_PREFIX)APPOINTMENT_ID)</parameter>
+   			<parameter name="DEL_PARAM_LIST"/>
+   			<parameter name="LIBRARY_STATUS_MESSAGE">($($LIB_RESP_PREFIX)LIBRARY_STATUS_MESSAGE)</parameter>
+   			<parameter name="LIBRARY_REASON_CODE">($($LIB_RESP_PREFIX)LIBRARY_REASON_CODE)</parameter>
+   			<parameter name="REMOVE_AFTER_LIST"/>
+   			<parameter name="LIBRARY_STATUS">($($LIB_RESP_PREFIX)LIBRARY_STATUS)</parameter>
+   			<parameter name="REMOVE_BEFORE_LIST"/>
+   		</exec>
+   	</body>
+   </method>
+msResourceMacParams.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>MapParametersBSTStep</class>
+   	<description/>
+   	<activity-duration/>
+   	<activity-name/>
+   	<input>
+   		<parameter name="SRI_ATTRIBUTE_VALUE_1" overwrite="yes">($UorBaseNbnNtd)?name=($IN_ntd_id)</parameter>
+   		<parameter name="SRI_ATTRIBUTE_VALUE_2" overwrite="yes">macAddress=($IN_mac_address);status=Active</parameter>
+   		<parameter name="SRI_ATTRIBUTE_NAME_1" overwrite="yes">uor</parameter>
+   		<parameter name="SRI_ATTRIBUTE_NAME_2" overwrite="yes">nvps</parameter>
+   		<parameter name="MAP_REMOVE_DEF_VAL_NOT_FOUND_PARAMETER" overwrite="yes">TRUE</parameter>
+   		<parameter name="SRI_CALL" overwrite="yes">CRUD_UPDATE_OBJECT</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+msResourceMacParams_copy1.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>MapParametersBSTStep</class>
+   	<description/>
+   	<activity-duration/>
+   	<activity-name/>
+   	<input>
+   		<parameter name="SRI_ATTRIBUTE_VALUE_1" overwrite="yes">($UorBaseNbnNtd)?name=($IN_ntd_id)</parameter>
+   		<parameter name="SRI_ATTRIBUTE_VALUE_2" overwrite="yes">macAddress=($IN_mac_address);status=Active</parameter>
+   		<parameter name="SRI_ATTRIBUTE_NAME_1" overwrite="yes">uor</parameter>
+   		<parameter name="SRI_ATTRIBUTE_NAME_2" overwrite="yes">nvps</parameter>
+   		<parameter name="MAP_REMOVE_DEF_VAL_NOT_FOUND_PARAMETER" overwrite="yes">TRUE</parameter>
+   		<parameter name="SRI_CALL" overwrite="yes">CRUD_UPDATE_OBJECT</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+msSetCancelParams.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>MapParametersBSTStep</class>
+   	<description/>
+   	<activity-duration/>
+   	<activity-name/>
+   	<input>
+   		<parameter name="LIBRARY_REASON_CODE" overwrite="yes">($LIBRARY_REASON_CODE)</parameter>
+   		<parameter name="LIBRARY_MESSAGE" overwrite="yes">($LIBRARY_MESSAGE)</parameter>
+   		<parameter name="LIBRARY_STATUS" overwrite="yes">5</parameter>
+   		<parameter name="MAP_REMOVE_DEF_VAL_NOT_FOUND_PARAMETER" overwrite="yes">TRUE</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+msSetCancelParams_copy1.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>MapParametersBSTStep</class>
+   	<description/>
+   	<activity-duration/>
+   	<activity-name/>
+   	<input>
+   		<parameter name="LIBRARY_REASON_CODE" overwrite="yes">($reason_code)</parameter>
+   		<parameter name="LIBRARY_MESSAGE" overwrite="yes">Order Cancelled</parameter>
+   		<parameter name="LIBRARY_STATUS" overwrite="yes">5</parameter>
+   		<parameter name="MAP_REMOVE_DEF_VAL_NOT_FOUND_PARAMETER" overwrite="yes">TRUE</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+msSetLocationServiceClass.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>LogicLibraryBSTStep</class>
+   	<description/>
+   	<activity-duration>00:00:00</activity-duration>
+   	<activity-name/>
+   	<input>
+   		<parameter name="ADD_ALL_PARAMS_TO_CHILD" overwrite="yes">FALSE</parameter>
+   		<parameter name="GET_ALL_RESP_PARAMS" overwrite="yes">FALSE</parameter>
+   		<parameter name="LIBRARY_LOGIC" overwrite="yes">LIB_NBN_SRI</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+msSetLocationServiceClass_copy1.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>LogicLibraryBSTStep</class>
+   	<description/>
+   	<activity-duration>00:00:00</activity-duration>
+   	<activity-name/>
+   	<input>
+   		<parameter name="ADD_ALL_PARAMS_TO_CHILD" overwrite="yes">FALSE</parameter>
+   		<parameter name="GET_ALL_RESP_PARAMS" overwrite="yes">FALSE</parameter>
+   		<parameter name="LIBRARY_LOGIC" overwrite="yes">LIB_NBN_SRI</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+msSetNtdMacAddress.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>LogicLibraryBSTStep</class>
+   	<description/>
+   	<activity-duration>00:00:00</activity-duration>
+   	<activity-name/>
+   	<input>
+   		<parameter name="ADD_ALL_PARAMS_TO_CHILD" overwrite="yes">FALSE</parameter>
+   		<parameter name="GET_ALL_RESP_PARAMS" overwrite="yes">FALSE</parameter>
+   		<parameter name="LIBRARY_LOGIC" overwrite="yes">LIB_NBN_SRI</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+msSetNtdMacAddress_copy1.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>LogicLibraryBSTStep</class>
+   	<description/>
+   	<activity-duration>00:00:00</activity-duration>
+   	<activity-name/>
+   	<input>
+   		<parameter name="ADD_ALL_PARAMS_TO_CHILD" overwrite="yes">FALSE</parameter>
+   		<parameter name="GET_ALL_RESP_PARAMS" overwrite="yes">FALSE</parameter>
+   		<parameter name="LIBRARY_LOGIC" overwrite="yes">LIB_NBN_SRI</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+msSetOrderToHeld.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE method SYSTEM "method.dtd">
+   <method parallel="no" parentId="METHOD_1447892904928_3">
+   	<class>Method</class>
+   	<description/>
+   	<activity-duration>00:00:00</activity-duration>
+   	<activity-name/>
+   	<mainline-enabled>true</mainline-enabled>
+   	<catalog-driven>false</catalog-driven>
+   	<input>
+   		<parameter name="LIB_PREFIX" overwrite="yes">LIB_APPT_</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	<body>
+   		<exec id="STEP_1449206519538_6" jump0="0" jump1="2" name="msAssignParameters">
+   			<instance_description>Create STATUS parameter separate because IB_ORDER_TRANSITION_LOGIC_REL_1_0_0 is expecting STATUS and not ORDER_STATUS.</instance_description>
+   			<parameter name="($LIB_PREFIX)STATUS">($COM_order_status)</parameter>
+   			<parameter name="DEL_PARAM_LIST"/>
+   			<parameter name="($LIB_PREFIX)HOLD_REASON_CODE">($@RESP_WFC@NBN_REASON_CODE)</parameter>
+   			<parameter name="($LIB_PREFIX)HOLD_ORDER_STATUS">($COM_order_status)</parameter>
+   			<parameter name="REMOVE_AFTER_LIST"/>
+   			<parameter name="REMOVE_BEFORE_LIST"/>
+   			<parameter name="($LIB_PREFIX)HOLD_REASON_DESCRIPTION">($@RESP_WFC@NBN_REASON_CODE):($@RESP_WFC@NBN_REASON_DESCRIPTION)</parameter>
+   		</exec>
+   		<exec id="STEP_1449206672168_7" jump0="0" jump1="0" name="msOrderHeld">
+   			<instance_description/>
+   			<parameter name="OUTPUT_PARAMETER_LIST"/>
+   			<parameter name="CUT_PREFIX">($LIB_PREFIX)</parameter>
+   			<parameter name="IGNORE_LIBRARY_ERRORS">FALSE</parameter>
+   			<parameter name="PARAO_LIST">REQUEST_ID</parameter>
+   			<parameter name="STARTS_WITH_LIST">COM_ IN_</parameter>
+   			<parameter name="PARAM_LIST"/>
+   		</exec>
+   		<exec id="STEP_1457330672258_2" jump0="0" jump1="1" name="msAssignParameters">
+   			<instance_description/>
+   			<parameter name="($LIB_PREFIX)ORDER_NTD_ID">($IN_ntd_id)</parameter>
+   			<parameter name="($LIB_PREFIX)REASON_CODE">($@RESP_WFC@NBN_REASON_CODE)</parameter>
+   			<parameter name="($LIB_PREFIX)ORDER_LOCATION_ID">($IN_location_id)</parameter>
+   			<parameter name="($LIB_PREFIX)OPERATION">Connect</parameter>
+   			<parameter name="DEL_PARAM_LIST"/>
+   			<parameter name="($LIB_PREFIX)ORDER_ID">($COM_nbn_order_id)</parameter>
+   			<parameter name="REMOVE_AFTER_LIST"/>
+   			<parameter name="REMOVE_BEFORE_LIST"/>
+   			<parameter name="($LIB_PREFIX)APPOINTMENT_ID">($IN_appointment_id)</parameter>
+   		</exec>
+   		<exec id="STEP_1457330672259_3" jump0="0" jump1="-2" name="msRegCreateShortfallParameters">
+   			<instance_description/>
+   		</exec>
+   	</body>
+   </method>
+msSetOrderToHeld_copy1.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE method SYSTEM "method.dtd">
+   <method parallel="no" parentId="METHOD_13">
+   	<class>Method</class>
+   	<description/>
+   	<activity-duration>00:00:00</activity-duration>
+   	<activity-name/>
+   	<mainline-enabled>true</mainline-enabled>
+   	<catalog-driven>false</catalog-driven>
+   	<input>
+   		<parameter name="LIB_PREFIX" overwrite="yes">LIB_APPT_</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	<body>
+   		<exec id="STEP_1458890444773_49" jump0="0" jump1="1" name="msAssignParameters_copy1">
+   			<instance_description>Create STATUS parameter separate because IB_ORDER_TRANSITION_LOGIC_REL_1_0_0 is expecting STATUS and not ORDER_STATUS.</instance_description>
+   			<parameter name="($LIB_PREFIX)STATUS">($COM_order_status)</parameter>
+   			<parameter name="DEL_PARAM_LIST"/>
+   			<parameter name="($LIB_PREFIX)HOLD_REASON_CODE">($@RESP_WFC@NBN_REASON_CODE)</parameter>
+   			<parameter name="($LIB_PREFIX)HOLD_ORDER_STATUS">($COM_order_status)</parameter>
+   			<parameter name="REMOVE_AFTER_LIST"/>
+   			<parameter name="REMOVE_BEFORE_LIST"/>
+   		</exec>
+   		<exec id="STEP_1458890444773_50" jump0="0" jump1="0" name="msOrderHeld_copy1">
+   			<instance_description/>
+   			<parameter name="OUTPUT_PARAMETER_LIST"/>
+   			<parameter name="CUT_PREFIX">($LIB_PREFIX)</parameter>
+   			<parameter name="IGNORE_LIBRARY_ERRORS">FALSE</parameter>
+   			<parameter name="PARAO_LIST">REQUEST_ID</parameter>
+   			<parameter name="STARTS_WITH_LIST">COM</parameter>
+   			<parameter name="PARAM_LIST"/>
+   		</exec>
+   	</body>
+   </method>
+msSetupConfigureCable.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>MapParametersBSTStep</class>
+   	<description/>
+   	<activity-duration/>
+   	<activity-name/>
+   	<input>
+   		<parameter name="CAB_IN_configure_connect" overwrite="yes">true</parameter>
+   		<parameter name="CAB_IN_ntd_id" overwrite="yes">($IN_ntd_id)</parameter>
+   		<parameter name="CAB_IN_operationType" overwrite="yes">CREATE</parameter>
+   		<parameter name="CAB_className" overwrite="yes">CableAccess</parameter>
+   		<parameter name="CAB_transactionName" overwrite="yes">Configure</parameter>
+   		<parameter name="MAP_REMOVE_DEF_VAL_NOT_FOUND_PARAMETER" overwrite="yes">TRUE</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+msSetupConfigureCable_copy1.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>MapParametersBSTStep</class>
+   	<description/>
+   	<activity-duration/>
+   	<activity-name/>
+   	<input>
+   		<parameter name="CAB_IN_configure_connect" overwrite="yes">true</parameter>
+   		<parameter name="CAB_IN_ntd_id" overwrite="yes">($IN_ntd_id)</parameter>
+   		<parameter name="CAB_IN_operationType" overwrite="yes">CREATE</parameter>
+   		<parameter name="CAB_className" overwrite="yes">CableAccess</parameter>
+   		<parameter name="CAB_transactionName" overwrite="yes">Configure</parameter>
+   		<parameter name="MAP_REMOVE_DEF_VAL_NOT_FOUND_PARAMETER" overwrite="yes">TRUE</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+msSetupShortfallWait.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>MapParametersBSTStep</class>
+   	<description/>
+   	<activity-duration/>
+   	<activity-name/>
+   	<input>
+   		<parameter name="NEXT_ACTION_OPTIONS" overwrite="yes">continue,cancel,held,recreate,reschedule</parameter>
+   		<parameter name="FORM" overwrite="yes">waitForHfcShortfalls</parameter>
+   		<parameter name="MAP_REMOVE_DEF_VAL_NOT_FOUND_PARAMETER" overwrite="yes">TRUE</parameter>
+   		<parameter name="NEXT_ACTION" overwrite="yes">continue</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+msSetupShortfallWait_copy1.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>MapParametersBSTStep</class>
+   	<description/>
+   	<activity-duration/>
+   	<activity-name/>
+   	<input>
+   		<parameter name="REQ_ID" overwrite="yes">($REQUEST_ID)</parameter>
+   		<parameter name="FORM" overwrite="yes">waitForHfcShortfalls</parameter>
+   		<parameter name="NEXT_ACTION" overwrite="yes">continue</parameter>
+   		<parameter name="NEXT_ACTION_OPTIONS" overwrite="yes">continue,cancel,held,recreate,reschedule</parameter>
+   		<parameter name="MAP_REMOVE_DEF_VAL_NOT_FOUND_PARAMETER" overwrite="yes">TRUE</parameter>
+   		<parameter name="CORRELATION_ID" overwrite="yes">($COM_order_correlation_id)</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+msSriDeleteToW.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>MapParametersBSTStep</class>
+   	<description/>
+   	<activity-duration/>
+   	<activity-name/>
+   	<input>
+   		<parameter name="MAP_REMOVE_DEF_VAL_NOT_FOUND_PARAMETER" overwrite="yes">TRUE</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+msSriFindModem.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>LogicLibraryBSTStep</class>
+   	<description/>
+   	<activity-duration>00:00:00</activity-duration>
+   	<activity-name/>
+   	<input>
+   		<parameter name="ADD_ALL_PARAMS_TO_CHILD" overwrite="yes">FALSE</parameter>
+   		<parameter name="GET_ALL_RESP_PARAMS" overwrite="yes">FALSE</parameter>
+   		<parameter name="LIBRARY_LOGIC" overwrite="yes">LIB_NBN_SRI</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+msSriFindModem_copy1.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>LogicLibraryBSTStep</class>
+   	<description/>
+   	<activity-duration>00:00:00</activity-duration>
+   	<activity-name/>
+   	<input>
+   		<parameter name="ADD_ALL_PARAMS_TO_CHILD" overwrite="yes">FALSE</parameter>
+   		<parameter name="GET_ALL_RESP_PARAMS" overwrite="yes">FALSE</parameter>
+   		<parameter name="LIBRARY_LOGIC" overwrite="yes">LIB_NBN_SRI</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+msSriNbnWorkParams.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>MapParametersBSTStep</class>
+   	<description/>
+   	<activity-duration/>
+   	<activity-name/>
+   	<input>
+   		<parameter name="SRI_ATTRIBUTE_VALUE_1" overwrite="yes">NbnOrder</parameter>
+   		<parameter name="SRI_ATTRIBUTE_VALUE_3" overwrite="yes">NbnWorks</parameter>
+   		<parameter name="SRI_ATTRIBUTE_VALUE_2" overwrite="yes">($COM_nbn_order_id)</parameter>
+   		<parameter name="SRI_ATTRIBUTE_NAME_1" overwrite="yes">className</parameter>
+   		<parameter name="SRI_ATTRIBUTE_NAME_3" overwrite="yes">detachRelationName</parameter>
+   		<parameter name="SRI_MAPPING_CONTEXT" overwrite="yes">getOrderShortfalls.xsl</parameter>
+   		<parameter name="SRI_ATTRIBUTE_NAME_2" overwrite="yes">name</parameter>
+   		<parameter name="MAP_REMOVE_DEF_VAL_NOT_FOUND_PARAMETER" overwrite="yes">TRUE</parameter>
+   		<parameter name="SRI_CALL" overwrite="yes">GET_OBJECT_BY_NAME</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+msSriProdModel.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>LogicLibraryBSTStep</class>
+   	<description/>
+   	<activity-duration>00:00:00</activity-duration>
+   	<activity-name/>
+   	<input>
+   		<parameter name="ADD_ALL_PARAMS_TO_CHILD" overwrite="yes">FALSE</parameter>
+   		<parameter name="GET_ALL_RESP_PARAMS" overwrite="yes">FALSE</parameter>
+   		<parameter name="LIBRARY_LOGIC" overwrite="yes">LIB_NBN_SRI</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+msSriProdModel_copy1.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>LogicLibraryBSTStep</class>
+   	<description/>
+   	<activity-duration>00:00:00</activity-duration>
+   	<activity-name/>
+   	<input>
+   		<parameter name="ADD_ALL_PARAMS_TO_CHILD" overwrite="yes">FALSE</parameter>
+   		<parameter name="GET_ALL_RESP_PARAMS" overwrite="yes">FALSE</parameter>
+   		<parameter name="LIBRARY_LOGIC" overwrite="yes">LIB_NBN_SRI</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+msSriUpdateModem.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>LogicLibraryBSTStep</class>
+   	<description/>
+   	<activity-duration>00:00:00</activity-duration>
+   	<activity-name/>
+   	<input>
+   		<parameter name="ADD_ALL_PARAMS_TO_CHILD" overwrite="yes">FALSE</parameter>
+   		<parameter name="GET_ALL_RESP_PARAMS" overwrite="yes">FALSE</parameter>
+   		<parameter name="LIBRARY_LOGIC" overwrite="yes">LIB_NBN_SRI</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+msSriUpdateModem_copy1.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>LogicLibraryBSTStep</class>
+   	<description/>
+   	<activity-duration>00:00:00</activity-duration>
+   	<activity-name/>
+   	<input>
+   		<parameter name="ADD_ALL_PARAMS_TO_CHILD" overwrite="yes">FALSE</parameter>
+   		<parameter name="GET_ALL_RESP_PARAMS" overwrite="yes">FALSE</parameter>
+   		<parameter name="LIBRARY_LOGIC" overwrite="yes">LIB_NBN_SRI</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+msTidySriAtts.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>RegExpBSTStep</class>
+   	<description/>
+   	<activity-duration/>
+   	<activity-name/>
+   	<input>
+   		<parameter name="DEL_PARAMS" overwrite="yes">dont_del_params</parameter>
+   		<parameter name="LIMIT_REGEXP" overwrite="yes">FALSE</parameter>
+   		<parameter name="REGEXP1" overwrite="yes">*,SRI_(.*)</parameter>
+   		<parameter name="REGEXP2" overwrite="yes">*,ON_ERROR</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+msTidySriAtts_copy1.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>RegExpBSTStep</class>
+   	<description/>
+   	<activity-duration/>
+   	<activity-name/>
+   	<input>
+   		<parameter name="DEL_PARAMS" overwrite="yes">dont_del_params</parameter>
+   		<parameter name="LIMIT_REGEXP" overwrite="yes">FALSE</parameter>
+   		<parameter name="REGEXP1" overwrite="yes">*,SRI_(.*)</parameter>
+   		<parameter name="REGEXP2" overwrite="yes">*,ON_ERROR</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+msTidySriAtts_copy2.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>RegExpBSTStep</class>
+   	<description/>
+   	<activity-duration/>
+   	<activity-name/>
+   	<input>
+   		<parameter name="DEL_PARAMS" overwrite="yes">dont_del_params</parameter>
+   		<parameter name="LIMIT_REGEXP" overwrite="yes">FALSE</parameter>
+   		<parameter name="REGEXP1" overwrite="yes">*,SRI_(.*)</parameter>
+   		<parameter name="REGEXP2" overwrite="yes">*,ON_ERROR</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+msTidySriAtts_copy3.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>RegExpBSTStep</class>
+   	<description/>
+   	<activity-duration/>
+   	<activity-name/>
+   	<input>
+   		<parameter name="DEL_PARAMS" overwrite="yes">dont_del_params</parameter>
+   		<parameter name="LIMIT_REGEXP" overwrite="yes">FALSE</parameter>
+   		<parameter name="REGEXP1" overwrite="yes">*,SRI_(.*)</parameter>
+   		<parameter name="REGEXP2" overwrite="yes">*,ON_ERROR</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+msTidySriAtts_copy4.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>RegExpBSTStep</class>
+   	<description/>
+   	<activity-duration/>
+   	<activity-name/>
+   	<input>
+   		<parameter name="DEL_PARAMS" overwrite="yes">dont_del_params</parameter>
+   		<parameter name="LIMIT_REGEXP" overwrite="yes">FALSE</parameter>
+   		<parameter name="REGEXP1" overwrite="yes">*,SRI_(.*)</parameter>
+   		<parameter name="REGEXP2" overwrite="yes">*,ON_ERROR</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+msTidySriAtts_copy5.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>RegExpBSTStep</class>
+   	<description/>
+   	<activity-duration/>
+   	<activity-name/>
+   	<input>
+   		<parameter name="DEL_PARAMS" overwrite="yes">dont_del_params</parameter>
+   		<parameter name="LIMIT_REGEXP" overwrite="yes">FALSE</parameter>
+   		<parameter name="REGEXP1" overwrite="yes">*,SRI_(.*)</parameter>
+   		<parameter name="REGEXP2" overwrite="yes">*,ON_ERROR</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+msUpdateModemParams.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>MapParametersBSTStep</class>
+   	<description/>
+   	<activity-duration/>
+   	<activity-name/>
+   	<input>
+   		<parameter name="SRI_ATTRIBUTE_VALUE_1" overwrite="yes">($uor)</parameter>
+   		<parameter name="SRI_ATTRIBUTE_VALUE_2" overwrite="yes">cableModemName=($IN_mac_address)</parameter>
+   		<parameter name="SRI_ATTRIBUTE_NAME_1" overwrite="yes">uor</parameter>
+   		<parameter name="SRI_ATTRIBUTE_NAME_2" overwrite="yes">nvps</parameter>
+   		<parameter name="MAP_REMOVE_DEF_VAL_NOT_FOUND_PARAMETER" overwrite="yes">TRUE</parameter>
+   		<parameter name="SRI_CALL" overwrite="yes">CRUD_UPDATE_OBJECT_IGNORE_SMAPI</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+msUpdateModemParams_copy1.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>MapParametersBSTStep</class>
+   	<description/>
+   	<activity-duration/>
+   	<activity-name/>
+   	<input>
+   		<parameter name="SRI_ATTRIBUTE_VALUE_1" overwrite="yes">($uor)</parameter>
+   		<parameter name="SRI_ATTRIBUTE_VALUE_3" overwrite="yes">($REQUEST_ID)</parameter>
+   		<parameter name="SRI_ATTRIBUTE_VALUE_2" overwrite="yes">cableModemName=($IN_mac_address)</parameter>
+   		<parameter name="SRI_ATTRIBUTE_NAME_1" overwrite="yes">uor</parameter>
+   		<parameter name="SRI_ATTRIBUTE_NAME_3" overwrite="yes">transaction_id</parameter>
+   		<parameter name="SRI_ATTRIBUTE_NAME_2" overwrite="yes">nvps</parameter>
+   		<parameter name="MAP_REMOVE_DEF_VAL_NOT_FOUND_PARAMETER" overwrite="yes">TRUE</parameter>
+   		<parameter name="SRI_CALL" overwrite="yes">CRUD_UPDATE_OBJECT_IGNORE_SMAPI</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+msUpdateProdModelParams.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>MapParametersBSTStep</class>
+   	<description/>
+   	<activity-duration/>
+   	<activity-name/>
+   	<input>
+   		<parameter name="SRI_ATTRIBUTE_VALUE_1" overwrite="yes">($IN_instanceId)</parameter>
+   		<parameter name="SRI_ATTRIBUTE_VALUE_2" overwrite="yes">mac_address=($IN_mac_address)</parameter>
+   		<parameter name="SRI_ATTRIBUTE_NAME_1" overwrite="yes">uor</parameter>
+   		<parameter name="SRI_ATTRIBUTE_NAME_2" overwrite="yes">nvps</parameter>
+   		<parameter name="MAP_REMOVE_DEF_VAL_NOT_FOUND_PARAMETER" overwrite="yes">TRUE</parameter>
+   		<parameter name="SRI_CALL" overwrite="yes">CRUD_UPDATE_OBJECT</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+msUpdateProdModelParams_copy1.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>MapParametersBSTStep</class>
+   	<description/>
+   	<activity-duration/>
+   	<activity-name/>
+   	<input>
+   		<parameter name="SRI_ATTRIBUTE_VALUE_1" overwrite="yes">($IN_instanceId)</parameter>
+   		<parameter name="SRI_ATTRIBUTE_VALUE_2" overwrite="yes">mac_address=($IN_mac_address)</parameter>
+   		<parameter name="SRI_ATTRIBUTE_NAME_1" overwrite="yes">uor</parameter>
+   		<parameter name="SRI_ATTRIBUTE_NAME_2" overwrite="yes">nvps</parameter>
+   		<parameter name="MAP_REMOVE_DEF_VAL_NOT_FOUND_PARAMETER" overwrite="yes">TRUE</parameter>
+   		<parameter name="SRI_CALL" overwrite="yes">CRUD_UPDATE_OBJECT</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+msUpdatelocationParams.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>MapParametersBSTStep</class>
+   	<description/>
+   	<activity-duration/>
+   	<activity-name/>
+   	<input>
+   		<parameter name="SRI_ATTRIBUTE_VALUE_1" overwrite="yes">($UorBaseNbnLocation)?name=($IN_location_id)</parameter>
+   		<parameter name="SRI_ATTRIBUTE_VALUE_2" overwrite="yes">service_class=24</parameter>
+   		<parameter name="SRI_ATTRIBUTE_NAME_1" overwrite="yes">uor</parameter>
+   		<parameter name="SRI_ATTRIBUTE_NAME_2" overwrite="yes">nvps</parameter>
+   		<parameter name="MAP_REMOVE_DEF_VAL_NOT_FOUND_PARAMETER" overwrite="yes">TRUE</parameter>
+   		<parameter name="SRI_CALL" overwrite="yes">CRUD_UPDATE_OBJECT</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+msUpdatelocationParams_copy1.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>MapParametersBSTStep</class>
+   	<description/>
+   	<activity-duration/>
+   	<activity-name/>
+   	<input>
+   		<parameter name="SRI_ATTRIBUTE_VALUE_1" overwrite="yes">($UorBaseNbnLocation)?name=($IN_location_id)</parameter>
+   		<parameter name="SRI_ATTRIBUTE_VALUE_2" overwrite="yes">service_class=24</parameter>
+   		<parameter name="SRI_ATTRIBUTE_NAME_1" overwrite="yes">uor</parameter>
+   		<parameter name="SRI_ATTRIBUTE_NAME_2" overwrite="yes">nvps</parameter>
+   		<parameter name="MAP_REMOVE_DEF_VAL_NOT_FOUND_PARAMETER" overwrite="yes">TRUE</parameter>
+   		<parameter name="SRI_CALL" overwrite="yes">CRUD_UPDATE_OBJECT</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+msWaitForResolution.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE method SYSTEM "method.dtd">
+   <method parallel="no" parentId="METHOD_1447892859667_1">
+   	<class>Method</class>
+   	<description/>
+   	<activity-duration>01:00:00</activity-duration>
+   	<activity-name/>
+   	<mainline-enabled>true</mainline-enabled>
+   	<catalog-driven>false</catalog-driven>
+   	<input>
+   	</input>
+   	<output all="no">
+   	</output>
+   	<body>
+   		<exec id="STEP_1458890893892_58" jump0="0" jump1="30" name="msSetupShortfallWait_copy1">
+   			<instance_description/>
+   			<parameter name="REMOVE_AFTER_LIST"/>
+   			<parameter name="REMOVE_BEFORE_LIST"/>
+   			<parameter name="DEL_PARAM_LIST"/>
+   		</exec>
+   		<exec id="STEP_1448242933693_0" jump0="0" jump1="40" name="msInitLoopCounter">
+   			<instance_description/>
+   			<parameter name="REMOVE_AFTER_LIST"/>
+   			<parameter name="REMOVE_BEFORE_LIST"/>
+   			<parameter name="DEL_PARAM_LIST"/>
+   		</exec>
+   		<exec id="STEP_1448263568882_7" jump0="0" jump1="0" name="msConnectNextAction">
+   			<jump index="-1"/>
+   			<jump index="1"/>
+   			<jump index="22"/>
+   			<jump index="26"/>
+   			<jump index="25"/>
+   			<jump index="-1"/>
+   			<instance_description/>
+   			<parameter name="OPER1">($NEXT_ACTION)</parameter>
+   		</exec>
+   		<exec id="STEP_1448263681905_8" jump0="0" jump1="0" name="msSetCancelParams">
+   			<instance_description/>
+   			<parameter name="REMOVE_AFTER_LIST"/>
+   			<parameter name="REMOVE_BEFORE_LIST"/>
+   			<parameter name="DEL_PARAM_LIST"/>
+   		</exec>
+   		<exec id="STEP_1448266874655_11" jump0="26" jump1="1" name="msIfEquals">
+   			<instance_description/>
+   			<parameter name="OPER1">($MANUAL_SHORTFALL_OPTION_($LOOP_COUNTER))</parameter>
+   			<parameter name="OPER2">Yes</parameter>
+   		</exec>
+   		<exec id="STEP_1448266959043_12" jump0="0" jump1="13" name="msIncrementLoopCounter">
+   			<instance_description/>
+   		</exec>
+   		<exec id="STEP_1448267705753_13" jump0="0" jump1="2" name="msResourceMacParams">
+   			<instance_description/>
+   			<parameter name="REMOVE_AFTER_LIST"/>
+   			<parameter name="REMOVE_BEFORE_LIST"/>
+   			<parameter name="DEL_PARAM_LIST"/>
+   		</exec>
+   		<exec id="STEP_1448267816836_14" jump0="0" jump1="8" name="msLookupUorBase">
+   			<instance_description/>
+   			<parameter name="LOOKUP_NAMES">NBN_UOR_BASE</parameter>
+   			<parameter name="MULTIPLE_VALUES">FALSE</parameter>
+   			<parameter name="KEY_LIST">UorBaseNbnNtd UorBaseNbnLocation</parameter>
+   		</exec>
+   		<exec id="STEP_1448268753383_15" jump0="0" jump1="1" name="msSetNtdMacAddress">
+   			<instance_description/>
+   			<parameter name="OUTPUT_PARAMETER_LIST">LIB(%) OUT(%)</parameter>
+   			<parameter name="CUT_PREFIX"/>
+   			<parameter name="IGNORE_LIBRARY_ERRORS">FALSE</parameter>
+   			<parameter name="PARAO_LIST"/>
+   			<parameter name="STARTS_WITH_LIST">SRI_</parameter>
+   			<parameter name="PARAM_LIST"/>
+   		</exec>
+   		<exec id="STEP_1448268874112_16" jump0="0" jump1="7" name="msIfEquals">
+   			<instance_description/>
+   			<parameter name="OPER1">($LIBRARY_STATUS)</parameter>
+   			<parameter name="OPER2">7</parameter>
+   		</exec>
+   		<exec id="STEP_1448268917757_18" jump0="0" jump1="1" name="msFindModemParams">
+   			<instance_description/>
+   			<parameter name="REMOVE_AFTER_LIST"/>
+   			<parameter name="REMOVE_BEFORE_LIST"/>
+   			<parameter name="DEL_PARAM_LIST"/>
+   		</exec>
+   		<exec id="STEP_1448269998540_19" jump0="0" jump1="1" name="msSriFindModem">
+   			<instance_description/>
+   			<parameter name="OUTPUT_PARAMETER_LIST">LIB(%) uor</parameter>
+   			<parameter name="CUT_PREFIX"/>
+   			<parameter name="IGNORE_LIBRARY_ERRORS">FALSE</parameter>
+   			<parameter name="PARAO_LIST"/>
+   			<parameter name="STARTS_WITH_LIST">SRI_</parameter>
+   			<parameter name="PARAM_LIST"/>
+   		</exec>
+   		<exec id="STEP_1448270101576_21" jump0="0" jump1="5" name="msIfEquals">
+   			<instance_description/>
+   			<parameter name="OPER1">($LIBRARY_STATUS)</parameter>
+   			<parameter name="OPER2">7</parameter>
+   		</exec>
+   		<exec id="STEP_1448270138486_23" jump0="0" jump1="1" name="msUpdateModemParams">
+   			<instance_description/>
+   			<parameter name="REMOVE_AFTER_LIST"/>
+   			<parameter name="REMOVE_BEFORE_LIST"/>
+   			<parameter name="DEL_PARAM_LIST"/>
+   		</exec>
+   		<exec id="STEP_1448270282197_24" jump0="0" jump1="6" name="msSriUpdateModem">
+   			<instance_description/>
+   			<parameter name="OUTPUT_PARAMETER_LIST">LIB(%)</parameter>
+   			<parameter name="CUT_PREFIX"/>
+   			<parameter name="IGNORE_LIBRARY_ERRORS">FALSE</parameter>
+   			<parameter name="PARAO_LIST"/>
+   			<parameter name="STARTS_WITH_LIST">SRI_</parameter>
+   			<parameter name="PARAM_LIST"/>
+   		</exec>
+   		<exec id="STEP_1448270362934_25" jump0="0" jump1="-9" name="msTidySriAtts">
+   			<instance_description/>
+   		</exec>
+   		<exec id="STEP_1448270443295_27" jump0="0" jump1="-6" name="msTidySriAtts">
+   			<instance_description/>
+   		</exec>
+   		<exec id="STEP_1448270448960_28" jump0="0" jump1="-4" name="msTidySriAtts">
+   			<instance_description/>
+   		</exec>
+   		<exec id="STEP_1448324372837_0" jump0="-14" jump1="-11" name="msParamNotExist">
+   			<instance_description/>
+   			<parameter name="OPER1">MANUAL_SHORTFALL_OPTION_($LOOP_COUNTER)</parameter>
+   		</exec>
+   		<exec id="STEP_1448346892402_1" jump0="0" jump1="2" name="msTidySriAtts">
+   			<instance_description/>
+   		</exec>
+   		<exec id="STEP_1448346904060_3" jump0="0" jump1="-1" name="msIfEquals">
+   			<instance_description/>
+   			<parameter name="OPER1">($LIBRARY_STATUS)</parameter>
+   			<parameter name="OPER2">7</parameter>
+   		</exec>
+   		<exec id="STEP_1448346918404_6" jump0="0" jump1="1" name="msUpdateProdModelParams">
+   			<instance_description/>
+   			<parameter name="REMOVE_AFTER_LIST"/>
+   			<parameter name="REMOVE_BEFORE_LIST"/>
+   			<parameter name="DEL_PARAM_LIST"/>
+   		</exec>
+   		<exec id="STEP_1448346989670_7" jump0="0" jump1="9" name="msSriProdModel">
+   			<instance_description/>
+   			<parameter name="OUTPUT_PARAMETER_LIST">LIB(%)</parameter>
+   			<parameter name="CUT_PREFIX"/>
+   			<parameter name="IGNORE_LIBRARY_ERRORS">FALSE</parameter>
+   			<parameter name="PARAO_LIST"/>
+   			<parameter name="STARTS_WITH_LIST">SRI_</parameter>
+   			<parameter name="PARAM_LIST"/>
+   		</exec>
+   		<exec id="METHOD_1449190761234_0" jump0="0" jump1="2" name="msRescheduleAppointment">
+   			<instance_description/>
+   			<out_parameter name="ADD_TO_UPPER_LEVEL">LIBRARY(%) IN(%)</out_parameter>
+   		</exec>
+   		<exec id="STEP_1449195462355_2" jump0="0" jump1="-1" name="msRemoveParamsFromPool">
+   			<instance_description/>
+   			<parameter name="REMOVE_AFTER_LIST"/>
+   			<parameter name="REMOVE_BEFORE_LIST"/>
+   			<parameter name="DEL_PARAM_LIST">LIBRARY_STATUS</parameter>
+   			<parameter name="MAP_REMOVE_DEF_VAL_NOT_FOUND_PARAMETER">FALSE</parameter>
+   		</exec>
+   		<exec id="STEP_1449195573569_4" jump0="0" jump1="5" name="msIfEquals">
+   			<instance_description/>
+   			<parameter name="OPER1">($LIBRARY_STATUS)</parameter>
+   			<parameter name="OPER2">7</parameter>
+   		</exec>
+   		<exec id="METHOD_1449206492877_0" jump0="0" jump1="-1" name="msSetOrderToHeld">
+   			<instance_description/>
+   			<out_parameter name="ADD_TO_UPPER_LEVEL">LIBRARY(%)</out_parameter>
+   		</exec>
+   		<exec id="STEP_1449206827728_9" jump0="0" jump1="-1" name="msRemoveParamsFromPool">
+   			<instance_description/>
+   			<parameter name="REMOVE_AFTER_LIST"/>
+   			<parameter name="REMOVE_BEFORE_LIST"/>
+   			<parameter name="DEL_PARAM_LIST">LIBRARY_STATUS</parameter>
+   			<parameter name="MAP_REMOVE_DEF_VAL_NOT_FOUND_PARAMETER">FALSE</parameter>
+   		</exec>
+   		<exec id="STEP_1449225927007_15" jump0="0" jump1="1" name="msRemoveParamsFromPool">
+   			<instance_description/>
+   			<parameter name="REMOVE_AFTER_LIST"/>
+   			<parameter name="REMOVE_BEFORE_LIST"/>
+   			<parameter name="DEL_PARAM_LIST">LIBRARY_STATUS</parameter>
+   			<parameter name="MAP_REMOVE_DEF_VAL_NOT_FOUND_PARAMETER">FALSE</parameter>
+   		</exec>
+   		<exec id="METHOD_1449225933761_1" jump0="0" jump1="-4" name="msRecreateAppointment">
+   			<instance_description/>
+   			<out_parameter name="ADD_TO_UPPER_LEVEL">LIBRARY(%) IN(%) OUT(%)</out_parameter>
+   		</exec>
+   		<exec id="STEP_1449433582088_1" jump0="0" jump1="10" name="msWaitForShortfallsWFC">
+   			<instance_description/>
+   			<parameter name="OUTPUT_PARAMETER_LIST"/>
+   			<parameter name="CUT_PREFIX"/>
+   			<parameter name="IGNORE_LIBRARY_ERRORS">FALSE</parameter>
+   			<parameter name="PARAO_LIST">FORM NEXT_ACTION_OPTIONS NEXT_ACTION WORK_QUEUE REQ_ID COM_nbn_order_id</parameter>
+   			<parameter name="STARTS_WITH_LIST">IN_ COM_ SHORT</parameter>
+   			<parameter name="PARAM_LIST">CORRELATION_ID</parameter>
+   		</exec>
+   		<exec id="STEP_1449706066136_2" jump0="0" jump1="1" name="msIfEquals">
+   			<instance_description/>
+   			<parameter name="OPER1">($LIBRARY_STATUS)</parameter>
+   			<parameter name="OPER2">7</parameter>
+   		</exec>
+   		<exec id="STEP_1449706078206_4" jump0="0" jump1="1" name="msTidySriAtts">
+   			<instance_description/>
+   		</exec>
+   		<exec id="STEP_1449706110511_6" jump0="0" jump1="1" name="msUpdatelocationParams">
+   			<instance_description/>
+   			<parameter name="REMOVE_AFTER_LIST"/>
+   			<parameter name="REMOVE_BEFORE_LIST"/>
+   			<parameter name="DEL_PARAM_LIST"/>
+   		</exec>
+   		<exec id="STEP_1449706328661_8" jump0="0" jump1="0" name="msSetLocationServiceClass">
+   			<instance_description/>
+   			<parameter name="OUTPUT_PARAMETER_LIST">LIB(%) OUT(%)</parameter>
+   			<parameter name="CUT_PREFIX"/>
+   			<parameter name="IGNORE_LIBRARY_ERRORS">FALSE</parameter>
+   			<parameter name="PARAO_LIST"/>
+   			<parameter name="STARTS_WITH_LIST">SRI_</parameter>
+   			<parameter name="PARAM_LIST"/>
+   		</exec>
+   		<exec id="STEP_1459050164888_6" jump0="0" jump1="-33" name="MapParameters_2">
+   			<instance_description/>
+   			<parameter name="REMOVE_AFTER_LIST"/>
+   			<parameter name="REMOVE_BEFORE_LIST"/>
+   			<parameter name="DEL_PARAM_LIST"/>
+   		</exec>
+   		<exec id="STEP_1459050164888_7" jump0="0" jump1="1" name="SendToNe_1">
+   			<instance_description/>
+   			<parameter name="ADD_ALL_PARAMETERS">FALSE</parameter>
+   			<parameter name="OUTPUT_PARAMETER_LIST"/>
+   			<parameter name="IGNORE_RESP_PREFIX"/>
+   			<parameter name="CUT_PREFIX">SRI11_</parameter>
+   			<parameter name="SUBSTRING"/>
+   			<parameter name="STARTS_WITH_LIST"/>
+   			<parameter name="CUT_RESP_PREFIX"/>
+   			<parameter name="ADD_RESP_PREFIX">OUTCL_</parameter>
+   			<parameter name="GET_ALL_RESP_PARAMS">TRUE</parameter>
+   			<parameter name="PARAO_LIST"/>
+   			<parameter name="END_WITH_LIST"/>
+   			<parameter name="PARAM_LIST"/>
+   		</exec>
+   		<exec id="STEP_1459050164888_8" jump0="0" jump1="-35" name="IF_1">
+   			<instance_description/>
+   			<parameter name="PARAM1">($OUTCL_STATUS)</parameter>
+   		</exec>
+   		<exec id="STEP_1459050164888_9" jump0="0" jump1="1" name="IF_2">
+   			<instance_description/>
+   			<parameter name="PARAM2">7</parameter>
+   			<parameter name="PARAM1">($PENDER_STATUS)</parameter>
+   		</exec>
+   		<exec id="STEP_1459050164888_10" jump0="0" jump1="-4" name="MapParameters_4">
+   			<instance_description/>
+   			<parameter name="REMOVE_AFTER_LIST"/>
+   			<parameter name="REMOVE_BEFORE_LIST"/>
+   			<parameter name="DEL_PARAM_LIST"/>
+   		</exec>
+   		<exec id="STEP_1459050164888_11" jump0="2" jump1="-2" name="IF_3">
+   			<instance_description/>
+   			<parameter name="PARAM2">False</parameter>
+   			<parameter name="PARAM1">($CLOSE_BY_MANUAL)</parameter>
+   		</exec>
+   		<exec id="STEP_1459050310568_12" jump0="-23" jump1="-34" name="IF_3">
+   			<instance_description/>
+   			<parameter name="PARAM2">False</parameter>
+   			<parameter name="PARAM1">($CLOSE_BY_MANUAL)</parameter>
+   		</exec>
+   		<exec id="STEP_1459382606747_1" jump0="0" jump1="-40" name="MapParameters_4_copy1">
+   			<instance_description/>
+   			<parameter name="REMOVE_AFTER_LIST"/>
+   			<parameter name="REMOVE_BEFORE_LIST"/>
+   			<parameter name="DEL_PARAM_LIST"/>
+   		</exec>
+   	</body>
+   </method>
+msWaitForResolution_copy1.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE method SYSTEM "method.dtd">
+   <method parallel="no" parentId="METHOD_1447892859667_1">
+   	<class>Method</class>
+   	<description/>
+   	<activity-duration>00:00:00</activity-duration>
+   	<activity-name/>
+   	<mainline-enabled>true</mainline-enabled>
+   	<catalog-driven>false</catalog-driven>
+   	<input>
+   	</input>
+   	<output all="no">
+   	</output>
+   	<body>
+   		<exec id="STEP_1458890444679_3" jump0="0" jump1="1" name="msSetupShortfallWait_copy1">
+   			<instance_description/>
+   			<parameter name="REMOVE_AFTER_LIST"/>
+   			<parameter name="REMOVE_BEFORE_LIST"/>
+   			<parameter name="DEL_PARAM_LIST"/>
+   		</exec>
+   		<exec id="STEP_1458890444695_4" jump0="0" jump1="1" name="msWaitForShortfallsWFC_copy1">
+   			<instance_description/>
+   			<parameter name="OUTPUT_PARAMETER_LIST"/>
+   			<parameter name="CUT_PREFIX"/>
+   			<parameter name="IGNORE_LIBRARY_ERRORS">FALSE</parameter>
+   			<parameter name="PARAO_LIST">FORM_NAME NEXT_ACTION_OPTIONS NEXT_ACTION WORK_QUEUE REQ_ID</parameter>
+   			<parameter name="STARTS_WITH_LIST">IN_ COM_ SHORT</parameter>
+   			<parameter name="PARAM_LIST">CORRELATION_ID</parameter>
+   		</exec>
+   		<exec id="STEP_1458890444695_5" jump0="0" jump1="1" name="IF_2_copy1">
+   			<instance_description/>
+   			<parameter name="PARAM2">7</parameter>
+   			<parameter name="PARAM1">($PENDER_STATUS)</parameter>
+   		</exec>
+   		<exec id="STEP_1458890444695_6" jump0="0" jump1="1" name="String_1_copy1">
+   			<instance_description/>
+   			<parameter name="PARAM2">CLOSE_BY_MANUAL</parameter>
+   			<parameter name="PARAM1">PENDER_MAC_ADDRESS</parameter>
+   		</exec>
+   		<exec id="STEP_1458890444695_7" jump0="4" jump1="1" name="IF_3_copy1">
+   			<instance_description/>
+   			<parameter name="PARAM2">NO</parameter>
+   			<parameter name="PARAM1">($CLOSE_BY_MANUAL)</parameter>
+   		</exec>
+   		<exec id="STEP_1458890444695_8" jump0="0" jump1="1" name="MapParameters_2_copy1">
+   			<instance_description/>
+   			<parameter name="REMOVE_AFTER_LIST"/>
+   			<parameter name="REMOVE_BEFORE_LIST"/>
+   			<parameter name="DEL_PARAM_LIST"/>
+   		</exec>
+   		<exec id="STEP_1458890444695_9" jump0="0" jump1="1" name="SendToNe_1_copy1">
+   			<instance_description/>
+   			<parameter name="ADD_ALL_PARAMETERS">FALSE</parameter>
+   			<parameter name="OUTPUT_PARAMETER_LIST"/>
+   			<parameter name="IGNORE_RESP_PREFIX"/>
+   			<parameter name="CUT_PREFIX">SRI_</parameter>
+   			<parameter name="SUBSTRING"/>
+   			<parameter name="STARTS_WITH_LIST"/>
+   			<parameter name="CUT_RESP_PREFIX"/>
+   			<parameter name="ADD_RESP_PREFIX">OUTCL_</parameter>
+   			<parameter name="GET_ALL_RESP_PARAMS">TRUE</parameter>
+   			<parameter name="PARAO_LIST"/>
+   			<parameter name="END_WITH_LIST"/>
+   			<parameter name="PARAM_LIST">SRI_ATTRIBUTE_NAME_1 SRI_ATTRIBUTE_VALUE_1 SRI_ATTRIBUTE_NAME_2 SRI_ATTRIBUTE_VALUE_2 SRI_ACTION_NAME</parameter>
+   		</exec>
+   		<exec id="STEP_1458890444695_10" jump0="0" jump1="1" name="IF_1_copy1">
+   			<instance_description/>
+   			<parameter name="PARAM1">($OUTCL_STATUS)</parameter>
+   		</exec>
+   		<exec id="STEP_1458890444695_11" jump0="0" jump1="0" name="msConnectNextAction_copy1">
+   			<jump index="1"/>
+   			<jump index="25"/>
+   			<jump index="26"/>
+   			<jump index="29"/>
+   			<jump index="31"/>
+   			<jump index="1"/>
+   			<instance_description/>
+   			<parameter name="OPER1">($NEXT_ACTION)</parameter>
+   		</exec>
+   		<exec id="STEP_1458890444695_12" jump0="0" jump1="1" name="msInitLoopCounter_copy1">
+   			<instance_description/>
+   			<parameter name="REMOVE_AFTER_LIST"/>
+   			<parameter name="REMOVE_BEFORE_LIST"/>
+   			<parameter name="DEL_PARAM_LIST"/>
+   		</exec>
+   		<exec id="STEP_1458890444695_13" jump0="21" jump1="1" name="msParamNotExist_copy1">
+   			<instance_description/>
+   			<parameter name="OPER1">SHORTFALL_OPTION_($LOOP_COUNTER)</parameter>
+   		</exec>
+   		<exec id="STEP_1458890444695_14" jump0="0" jump1="1" name="msLookupUorBase_copy1">
+   			<instance_description/>
+   			<parameter name="LOOKUP_NAMES">NBN_UOR_BASE</parameter>
+   			<parameter name="MULTIPLE_VALUES">FALSE</parameter>
+   			<parameter name="KEY_LIST">UorBaseNbnNtd UorBaseNbnLocation</parameter>
+   		</exec>
+   		<exec id="STEP_1458890444695_15" jump0="0" jump1="1" name="msTidySriAtts_copy1">
+   			<instance_description/>
+   		</exec>
+   		<exec id="STEP_1458890444695_16" jump0="0" jump1="1" name="msResourceMacParams_copy1">
+   			<instance_description/>
+   			<parameter name="REMOVE_AFTER_LIST"/>
+   			<parameter name="REMOVE_BEFORE_LIST"/>
+   			<parameter name="DEL_PARAM_LIST"/>
+   		</exec>
+   		<exec id="STEP_1458890444695_17" jump0="0" jump1="1" name="msSetNtdMacAddress_copy1">
+   			<instance_description/>
+   			<parameter name="OUTPUT_PARAMETER_LIST">LIB(%) OUT(%)</parameter>
+   			<parameter name="CUT_PREFIX"/>
+   			<parameter name="IGNORE_LIBRARY_ERRORS">FALSE</parameter>
+   			<parameter name="PARAO_LIST"/>
+   			<parameter name="STARTS_WITH_LIST">SRI_</parameter>
+   			<parameter name="PARAM_LIST"/>
+   		</exec>
+   		<exec id="STEP_1458890444695_18" jump0="0" jump1="1" name="msIfEquals_copy1">
+   			<instance_description/>
+   			<parameter name="OPER1">($LIBRARY_STATUS)</parameter>
+   			<parameter name="OPER2">7</parameter>
+   		</exec>
+   		<exec id="STEP_1458890444695_19" jump0="0" jump1="1" name="msTidySriAtts_copy2">
+   			<instance_description/>
+   		</exec>
+   		<exec id="STEP_1458890444695_20" jump0="0" jump1="1" name="msFindModemParams_copy1">
+   			<instance_description/>
+   			<parameter name="REMOVE_AFTER_LIST"/>
+   			<parameter name="REMOVE_BEFORE_LIST"/>
+   			<parameter name="DEL_PARAM_LIST"/>
+   		</exec>
+   		<exec id="STEP_1458890444695_21" jump0="0" jump1="1" name="msSriFindModem_copy1">
+   			<instance_description/>
+   			<parameter name="OUTPUT_PARAMETER_LIST">LIB(%) uor</parameter>
+   			<parameter name="CUT_PREFIX"/>
+   			<parameter name="IGNORE_LIBRARY_ERRORS">FALSE</parameter>
+   			<parameter name="PARAO_LIST"/>
+   			<parameter name="STARTS_WITH_LIST">SRI_</parameter>
+   			<parameter name="PARAM_LIST"/>
+   		</exec>
+   		<exec id="STEP_1458890444695_22" jump0="0" jump1="1" name="msIfEquals_copy1">
+   			<instance_description/>
+   			<parameter name="OPER1">($LIBRARY_STATUS)</parameter>
+   			<parameter name="OPER2">7</parameter>
+   		</exec>
+   		<exec id="STEP_1458890444695_23" jump0="0" jump1="1" name="msTidySriAtts_copy3">
+   			<instance_description/>
+   		</exec>
+   		<exec id="STEP_1458890444695_24" jump0="0" jump1="1" name="msUpdateModemParams_copy1">
+   			<instance_description/>
+   			<parameter name="REMOVE_AFTER_LIST"/>
+   			<parameter name="REMOVE_BEFORE_LIST"/>
+   			<parameter name="DEL_PARAM_LIST"/>
+   		</exec>
+   		<exec id="STEP_1458890444695_25" jump0="0" jump1="1" name="msSriUpdateModem_copy1">
+   			<instance_description/>
+   			<parameter name="OUTPUT_PARAMETER_LIST">LIB(%)</parameter>
+   			<parameter name="CUT_PREFIX"/>
+   			<parameter name="IGNORE_LIBRARY_ERRORS">FALSE</parameter>
+   			<parameter name="PARAO_LIST"/>
+   			<parameter name="STARTS_WITH_LIST">SRI_</parameter>
+   			<parameter name="PARAM_LIST"/>
+   		</exec>
+   		<exec id="STEP_1458890444710_26" jump0="0" jump1="1" name="msIfEquals_copy1">
+   			<instance_description/>
+   			<parameter name="OPER1">($LIBRARY_STATUS)</parameter>
+   			<parameter name="OPER2">7</parameter>
+   		</exec>
+   		<exec id="STEP_1458890444710_27" jump0="0" jump1="1" name="msTidySriAtts_copy4">
+   			<instance_description/>
+   		</exec>
+   		<exec id="STEP_1458890444710_28" jump0="0" jump1="1" name="msUpdateProdModelParams_copy1">
+   			<instance_description/>
+   			<parameter name="REMOVE_AFTER_LIST"/>
+   			<parameter name="REMOVE_BEFORE_LIST"/>
+   			<parameter name="DEL_PARAM_LIST"/>
+   		</exec>
+   		<exec id="STEP_1458890444710_29" jump0="0" jump1="1" name="msSriProdModel_copy1">
+   			<instance_description/>
+   			<parameter name="OUTPUT_PARAMETER_LIST">LIB(%)</parameter>
+   			<parameter name="CUT_PREFIX"/>
+   			<parameter name="IGNORE_LIBRARY_ERRORS">FALSE</parameter>
+   			<parameter name="PARAO_LIST"/>
+   			<parameter name="STARTS_WITH_LIST">SRI_</parameter>
+   			<parameter name="PARAM_LIST"/>
+   		</exec>
+   		<exec id="STEP_1458890444710_30" jump0="0" jump1="1" name="msIfEquals_copy1">
+   			<instance_description/>
+   			<parameter name="OPER1">($LIBRARY_STATUS)</parameter>
+   			<parameter name="OPER2">7</parameter>
+   		</exec>
+   		<exec id="STEP_1458890444710_31" jump0="0" jump1="1" name="msTidySriAtts_copy5">
+   			<instance_description/>
+   		</exec>
+   		<exec id="STEP_1458890444710_32" jump0="0" jump1="1" name="msUpdatelocationParams_copy1">
+   			<instance_description/>
+   			<parameter name="REMOVE_AFTER_LIST"/>
+   			<parameter name="REMOVE_BEFORE_LIST"/>
+   			<parameter name="DEL_PARAM_LIST"/>
+   		</exec>
+   		<exec id="STEP_1458890444710_33" jump0="0" jump1="0" name="msSetLocationServiceClass_copy1">
+   			<instance_description/>
+   			<parameter name="OUTPUT_PARAMETER_LIST">LIB(%) OUT(%)</parameter>
+   			<parameter name="CUT_PREFIX"/>
+   			<parameter name="IGNORE_LIBRARY_ERRORS">FALSE</parameter>
+   			<parameter name="PARAO_LIST"/>
+   			<parameter name="STARTS_WITH_LIST">SRI_</parameter>
+   			<parameter name="PARAM_LIST"/>
+   		</exec>
+   		<exec id="STEP_1458890444710_34" jump0="-30" jump1="1" name="msIfEquals_copy1">
+   			<instance_description/>
+   			<parameter name="OPER1">($SHORTFALL_OPTION_($LOOP_COUNTER))</parameter>
+   			<parameter name="OPER2">Yes</parameter>
+   		</exec>
+   		<exec id="STEP_1458890444710_35" jump0="0" jump1="-22" name="msIncrementLoopCounter_copy1">
+   			<instance_description/>
+   		</exec>
+   		<exec id="STEP_1458890444710_36" jump0="0" jump1="0" name="msSetCancelParams_copy1">
+   			<instance_description/>
+   			<parameter name="REMOVE_AFTER_LIST"/>
+   			<parameter name="REMOVE_BEFORE_LIST"/>
+   			<parameter name="DEL_PARAM_LIST"/>
+   		</exec>
+   		<exec id="STEP_1458890444710_37" jump0="0" jump1="1" name="msRemoveParamsFromPool_copy1">
+   			<instance_description/>
+   			<parameter name="REMOVE_AFTER_LIST"/>
+   			<parameter name="REMOVE_BEFORE_LIST"/>
+   			<parameter name="DEL_PARAM_LIST">LIBRARY_STATUS</parameter>
+   			<parameter name="MAP_REMOVE_DEF_VAL_NOT_FOUND_PARAMETER">FALSE</parameter>
+   		</exec>
+   		<exec id="METHOD_1458890444710_2" jump0="0" jump1="1" name="msRescheduleAppointment_copy1">
+   			<instance_description/>
+   			<out_parameter name="ADD_TO_UPPER_LEVEL">LIBRARY(%) IN(%)</out_parameter>
+   		</exec>
+   		<exec id="STEP_1458890444710_38" jump0="0" jump1="-35" name="msIfEquals_copy1">
+   			<instance_description/>
+   			<parameter name="OPER1">($LIBRARY_STATUS)</parameter>
+   			<parameter name="OPER2">7</parameter>
+   		</exec>
+   		<exec id="STEP_1458890444726_39" jump0="0" jump1="1" name="msRemoveParamsFromPool_copy2">
+   			<instance_description/>
+   			<parameter name="REMOVE_AFTER_LIST"/>
+   			<parameter name="REMOVE_BEFORE_LIST"/>
+   			<parameter name="DEL_PARAM_LIST">LIBRARY_STATUS</parameter>
+   			<parameter name="MAP_REMOVE_DEF_VAL_NOT_FOUND_PARAMETER">FALSE</parameter>
+   		</exec>
+   		<exec id="METHOD_1458890444726_3" jump0="0" jump1="-2" name="msRecreateAppointment_copy1">
+   			<instance_description/>
+   			<out_parameter name="ADD_TO_UPPER_LEVEL">LIBRARY(%) IN(%)</out_parameter>
+   		</exec>
+   		<exec id="STEP_1458890444726_40" jump0="0" jump1="1" name="msRemoveParamsFromPool_copy3">
+   			<instance_description/>
+   			<parameter name="REMOVE_AFTER_LIST"/>
+   			<parameter name="REMOVE_BEFORE_LIST"/>
+   			<parameter name="DEL_PARAM_LIST">LIBRARY_STATUS</parameter>
+   			<parameter name="MAP_REMOVE_DEF_VAL_NOT_FOUND_PARAMETER">FALSE</parameter>
+   		</exec>
+   		<exec id="METHOD_1458890444726_4" jump0="0" jump1="-4" name="msSetOrderToHeld_copy1">
+   			<instance_description/>
+   			<out_parameter name="ADD_TO_UPPER_LEVEL">LIBRARY(%)</out_parameter>
+   		</exec>
+   	</body>
+   </method>
+msWaitForShortfallsWFC.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>LogicLibraryBSTStep</class>
+   	<description/>
+   	<activity-duration>01:00:00</activity-duration>
+   	<activity-name>Wait For Shortfalls</activity-name>
+   	<input>
+   		<parameter name="ADD_ALL_PARAMS_TO_CHILD" overwrite="yes">FALSE</parameter>
+   		<parameter name="GET_ALL_RESP_PARAMS" overwrite="yes">TRUE</parameter>
+   		<parameter name="LIBRARY_LOGIC" overwrite="yes">LIB_NBN_WAIT_AND_NOTIFY_LOGIC</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+msWaitForShortfallsWFC_copy1.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>LogicLibraryBSTStep</class>
+   	<description/>
+   	<activity-duration>00:00:00</activity-duration>
+   	<activity-name/>
+   	<input>
+   		<parameter name="ADD_ALL_PARAMS_TO_CHILD" overwrite="yes">FALSE</parameter>
+   		<parameter name="GET_ALL_RESP_PARAMS" overwrite="yes">TRUE</parameter>
+   		<parameter name="LIBRARY_LOGIC" overwrite="yes">LIB_NBN_WAIT_AND_NOTIFY_LOGIC</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+waitforcablemodemnotification.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>LogicLibraryBSTStep</class>
+   	<description/>
+   	<activity-duration>01:00:00</activity-duration>
+   	<activity-name>LogicLibrary_2</activity-name>
+   	<input>
+   		<parameter name="ADD_ALL_PARAMS_TO_CHILD" overwrite="yes">FALSE</parameter>
+   		<parameter name="GET_ALL_RESP_PARAMS" overwrite="yes">FALSE</parameter>
+   		<parameter name="LIBRARY_LOGIC" overwrite="yes">LIB_NBN_WAIT_FOR_CM_NOTIFICATION</parameter>
+   	</input>
+   	<output all="yes">
+   	</output>
+   	
+   </step>
+waitforcablemodemnotification_copy1.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>LogicLibraryBSTStep</class>
+   	<description/>
+   	<activity-duration>01:00:00</activity-duration>
+   	<activity-name>LogicLibrary_2</activity-name>
+   	<input>
+   		<parameter name="ADD_ALL_PARAMS_TO_CHILD" overwrite="yes">FALSE</parameter>
+   		<parameter name="GET_ALL_RESP_PARAMS" overwrite="yes">FALSE</parameter>
+   		<parameter name="LIBRARY_LOGIC" overwrite="yes">LIB_NBN_WAIT_FOR_CM_NOTIFICATION</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>

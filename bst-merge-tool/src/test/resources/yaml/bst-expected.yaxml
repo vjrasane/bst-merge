@@ -1,0 +1,51 @@
+!java.util.TreeMap
+Step.xml: |-
+   <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+   <!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+       <class>Step</class>
+       <description>local_addition_value</description>
+       <activity-duration></activity-duration>
+       <activity-name>remote_addition_value</activity-name>
+       <input>
+           <parameter name="LOCAL_ADDITION">local_addition_value</parameter>
+           <parameter name="REMOTE_ADDITION">remote_addition_value</parameter>
+           <parameter name="SECOND_STEP_PARAM" overwrite="yes">remote_change</parameter>
+           <parameter name="STEP_PARAM" overwrite="yes">local_change</parameter>
+       </input>
+       <output all="no"/>
+   </step>
+main_method.xml: |-
+   <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+   <!DOCTYPE method SYSTEM "method.dtd">
+   <method parallel="no">
+       <class>Method</class>
+       <description>local_change</description>
+       <activity-duration>00:01:00</activity-duration>
+       <activity-name>remote_change</activity-name>
+       <mainline-enabled>true</mainline-enabled>
+       <catalog-driven>false</catalog-driven>
+       <input/>
+       <output all="no"/>
+       <body>
+           <exec id="STEP_ID_2" jump0="0" jump1="2" name="Step">
+               <instance_description></instance_description>
+               <parameter name="LOCAL_ADDITION">local_addition_value</parameter>
+           </exec>
+           <exec id="STEP_ID_3" jump0="0" jump1="1" name="Step">
+               <instance_description></instance_description>
+               <parameter name="REMOTE_ADDITION">remote_addition_value</parameter>
+           </exec>
+           <exec id="STEP_ID_0" jump0="0" jump1="1" name="Step">
+               <jump index="1"/>
+               <jump index="-2"/>
+               <jump index="-1"/>
+               <instance_description></instance_description>
+               <parameter name="LOCAL_ADDITION">local_addition_value</parameter>
+           </exec>
+           <exec id="STEP_ID_1" jump0="0" jump1="0" name="Step">
+               <instance_description></instance_description>
+               <parameter name="REMOTE_ADDITION">remote_addition_value</parameter>
+           </exec>
+       </body>
+   </method>

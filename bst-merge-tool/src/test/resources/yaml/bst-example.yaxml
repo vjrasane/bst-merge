@@ -1,0 +1,155 @@
+!java.util.TreeMap
+IF_Equals.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>IFBSTStep</class>
+   	<description/>
+   	<activity-duration/>
+   	<activity-name/>
+   	<input>
+   		<parameter name="CONDITION" overwrite="yes">snequals "($OPER1)" "($OPER2)"</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+LogicLibrary.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>LogicLibraryBSTStep</class>
+   	<description/>
+   	<activity-duration>00:01:00</activity-duration>
+   	<activity-name>Inflight Amend Order</activity-name>
+   	<input>
+   		<parameter name="ADD_ALL_PARAMS_TO_CHILD" overwrite="yes">TRUE</parameter>
+   		<parameter name="GET_ALL_RESP_PARAMS" overwrite="yes">FALSE</parameter>
+   		<parameter name="LIBRARY_LOGIC" overwrite="yes">($($LOOKUP_KEY))</parameter>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+LookUp_SingleValue.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>LookUpBSTStep</class>
+   	<description/>
+   	<activity-duration/>
+   	<activity-name/>
+   	<input>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+MapBSTParameters.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>MapParametersBSTStep</class>
+   	<description/>
+   	<activity-duration/>
+   	<activity-name/>
+   	<input>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+SendRespToNorthBound.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE step SYSTEM "step.dtd">
+   <step>
+   	<class>SendRespBSTStep</class>
+   	<description/>
+   	<activity-duration/>
+   	<activity-name/>
+   	<input>
+   	</input>
+   	<output all="no">
+   	</output>
+   	
+   </step>
+main_method.xml: |-
+   <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE method SYSTEM "method.dtd">
+   <method parallel="no">
+   	<class>Method</class>
+   	<description/>
+   	<activity-duration>00:01:00</activity-duration>
+   	<activity-name/>
+   	<mainline-enabled>true</mainline-enabled>
+   	<catalog-driven>false</catalog-driven>
+   	<input>
+   	</input>
+   	<output all="yes">
+   	</output>
+   	<body>
+   		<exec id="STEP_1435201240345_3" jump0="0" jump1="3" name="MapBSTParameters">
+   			<instance_description/>
+   			<parameter overwrite="no" name="LOOKUP_KEY">LOGIC_LIB_AMEND_ORDER_KEY</parameter>
+   			<parameter name="TASK_SUCCESS">7</parameter>
+   			<parameter name="TASK_FAILED">9</parameter>
+   			<parameter name="DEL_PARAM_LIST"/>
+   			<parameter name="FAILED_ERROR_CODE">RC-2</parameter>
+   			<parameter name="REMOVE_AFTER_LIST"/>
+   			<parameter name="REMOVE_BEFORE_LIST"/>
+   			<parameter name="READY_CODE">RC-0</parameter>
+   			<parameter name="LOOKUP_TABLE">LIB_AMEND_CANCEL_ORDER_CONFIG</parameter>
+   			<parameter name="MAP_REMOVE_DEF_VAL_NOT_FOUND_PARAMETER">FALSE</parameter>
+   		</exec>
+   		<exec id="STEP_1435200396452_0" jump0="0" jump1="0" name="SendRespToNorthBound">
+   			<instance_description/>
+   			<parameter name="_SMESSAGE_ID">$RESP_ID</parameter>
+   			<parameter name="_STATUS">$RESP_STATUS</parameter>
+   			<parameter name="STARTS_WITH_LIST_WITH_CUT_PREFIX"/>
+   			<parameter name="SUBSTRING"/>
+   			<parameter name="PARAO_LIST"/>
+   			<parameter name="STARTS_WITH_LIST"/>
+   			<parameter name="END_WITH_LIST"/>
+   			<parameter name="PARAM_LIST"/>
+   			<parameter name="DELETE_FROM_LIST"/>
+   			<parameter name="_SMESSAGE">($RESP_MESSAGE)</parameter>
+   		</exec>
+   		<exec id="STEP_1435201155123_1" jump0="0" jump1="4" name="LogicLibrary">
+   			<instance_description/>
+   			<parameter name="OUTPUT_PARAMETER_LIST">@LIB_RESP@(%) updateOrderResponse APPOINTMENT_ID</parameter>
+   			<parameter name="CUT_PREFIX"/>
+   			<parameter name="IGNORE_LIBRARY_ERRORS">FALSE</parameter>
+   			<parameter name="PARAO_LIST"/>
+   			<parameter name="STARTS_WITH_LIST"/>
+   			<parameter name="PARAM_LIST"/>
+   			<out_parameter name="RESP_STATUS">($@LIB_RESP@RESP_STATUS)</out_parameter>
+   			<out_parameter name="RESP_MESSAGE">($@LIB_RESP@RESP_MESSAGE)</out_parameter>
+   			<out_parameter name="RESP_ID">($@LIB_RESP@RESP_ID)</out_parameter>
+   		</exec>
+   		<exec id="STEP_1435201208379_2" jump0="0" jump1="1" name="LookUp_SingleValue">
+   			<instance_description/>
+   			<parameter name="LOOKUP_NAMES">$LOOKUP_TABLE</parameter>
+   			<parameter name="MULTIPLE_VALUES">FALSE</parameter>
+   			<parameter name="KEY_LIST">$LOOKUP_KEY</parameter>
+   		</exec>
+   		<exec id="STEP_1435201358605_4" jump0="1" jump1="-2" name="IF_Equals">
+   			<instance_description/>
+   			<parameter name="OPER1">($($LOOKUP_KEY))</parameter>
+   			<parameter name="OPER2">NOT_FOUND</parameter>
+   		</exec>
+   		<exec id="STEP_1435201434591_5" jump0="0" jump1="-4" name="MapBSTParameters">
+   			<instance_description/>
+   			<parameter name="DEL_PARAM_LIST"/>
+   			<parameter name="REMOVE_AFTER_LIST"/>
+   			<parameter name="RESP_STATUS">$TASK_FAILED</parameter>
+   			<parameter name="REMOVE_BEFORE_LIST"/>
+   			<parameter name="RESP_MESSAGE">($LOOKUP_KEY) not found in lookup table - CHANGE_STATE_CONFIG</parameter>
+   			<parameter name="MAP_REMOVE_DEF_VAL_NOT_FOUND_PARAMETER">FALSE</parameter>
+   			<parameter name="RESP_ID">$FAILED_ERROR_CODE</parameter>
+   		</exec>
+   		<exec id="STEP_1435203434145_0" jump0="0" jump1="-5" name="MapBSTParameters">
+   			<instance_description/>
+   			<parameter name="DEL_PARAM_LIST"/>
+   			<parameter name="REMOVE_AFTER_LIST"/>
+   			<parameter name="RESP_STATUS">($@LIB_RESP@RESP_STATUS)</parameter>
+   			<parameter name="REMOVE_BEFORE_LIST"/>
+   			<parameter name="RESP_MESSAGE">($@LIB_RESP@RESP_MESSAGE)</parameter>
+   			<parameter name="MAP_REMOVE_DEF_VAL_NOT_FOUND_PARAMETER">FALSE</parameter>
+   			<parameter name="RESP_ID">($@LIB_RESP@RESP_ID)</parameter>
+   		</exec>
+   	</body>
+   </method>

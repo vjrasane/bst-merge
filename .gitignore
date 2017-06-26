@@ -1,0 +1,5 @@
+*.prefs
+*.project
+*.classpath
+bst-diff/dependency-reduced-pom.xml
+bst-merge-tool/dependency-reduced-pom.xml
