@@ -8,7 +8,12 @@ import com.comptel.bst.tools.diff.parser.entity.generic.Element;
 import com.comptel.bst.tools.diff.parser.entity.generic.Tag;
 import com.comptel.bst.tools.diff.parser.entity.jaxb.JAXBParameter;
 import com.comptel.bst.tools.diff.parser.entity.jaxb.JAXBParameterGroup;
-
+/*
+ * General class for the parameter containers. Most of the
+ * functionality is shared between them so it is placed here, but
+ * due to some minor details the actual groups have to be represented
+ * as their own subclasses.
+ */
 public class ParameterGroup<P extends JAXBParameter, G extends JAXBParameterGroup> extends Element implements Conversible<G> {
 
     private static final long serialVersionUID = 1L;
@@ -27,8 +32,10 @@ public class ParameterGroup<P extends JAXBParameter, G extends JAXBParameterGrou
         this.convert(params);
     }
 
+    // Converts the given XML object to internal element object
     @Override
     public void convert(G obj) {
+        // Convert each parameter as they are added
         obj.getParameter().forEach(p -> this.addElement(new Parameter(p)));
     }
 

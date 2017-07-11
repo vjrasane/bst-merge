@@ -18,7 +18,14 @@ import com.comptel.bst.tools.diff.parser.entity.Yaml;
 import com.comptel.bst.tools.diff.utils.DiffConstants;
 import com.comptel.bst.tools.diff.utils.OutputCharset;
 
+/*
+ * Main class for running the diff tool from the command line
+ */
 public class CommandLineTool {
+
+    /*
+     * Diff file parameters
+     */
 
     @Parameter(names = { CommonConstants.BASE_FILE_ARG, CommonConstants.BASE_FILE_ARG_ABBR }, arity = 1, description = "Path to the base file", required = true, validateValueWith = FileExistsValidator.class)
     private File base;
@@ -26,11 +33,16 @@ public class CommandLineTool {
     @Parameter(names = { DiffConstants.DERIVED_FILE_ARG, DiffConstants.DERIVED_FILE_ARG }, arity = 1, description = "Path to the derived file", required = true, validateValueWith = FileExistsValidator.class)
     private File derived;
 
+    /*
+     *  Hidden parameter that can be used to switch to either UTF8 or ASCII charset.
+     *  This is mostly for showing the output in ASCII in case some applications do not support UTF8.
+     */
     @Parameter(names = CommonConstants.OUTPUT_CHARSET_ARG, hidden = true, required = false, converter=OutputCharset.OutputCharsetConverter.class)
     protected OutputCharset charset = OutputCharset.UTF8;
 
     public static void main(String[] args) {
-        CommonUtils.printStartupMsg(DiffConstants.DIFF_PROGRAM_NAME);
+        CommonUtils.printTitle(DiffConstants.DIFF_PROGRAM_NAME); // Print the header message
+
         CommandLineTool diffTool = new CommandLineTool();
         JCommander jc = new JCommander(diffTool);
 
@@ -52,14 +64,15 @@ public class CommandLineTool {
     public void diff() throws IOException {
         OutputTree.setOutputCharset(this.charset);
 
+        // Parse the base and derived files into internal objects
         Yaml baseYaml = BSTReader.readYaml(base);
         Yaml derviedYaml = BSTReader.readYaml(derived);
 
-        CommonUtils.printPhase(DiffConstants.DIFF_COMP_PHASE);
+        CommonUtils.printPhase(DiffConstants.DIFF_COMP_PHASE); // Print phase message
 
-        List<Difference> diffs = derviedYaml.compare(baseYaml);
+        List<Difference> diffs = derviedYaml.compare(baseYaml); // Compare the files to get differences
 
-        CommonUtils.printPhase(DiffConstants.DIFF_DETECT_PHASE);
-        System.out.println(new OutputTree(Branch.UNDEFINED, diffs));
+        CommonUtils.printPhase(DiffConstants.DIFF_DETECT_PHASE); // Print phase message
+        System.out.println(new OutputTree(Branch.UNDEFINED, diffs)); // Show the differences as an output tree
     }
 }

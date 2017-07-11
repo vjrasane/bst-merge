@@ -6,12 +6,16 @@ public class Timer {
 
     public static boolean PRINT = false;
 
+    public Timer(){
+        this(System.currentTimeMillis());
+    }
+
     private Timer(long time){
         this.time = time;
     }
 
-    public static Timer start() {
-        return new Timer(System.currentTimeMillis());
+    public void start() {
+        this.time = System.currentTimeMillis();
     }
 
     public long stop() {
@@ -19,8 +23,9 @@ public class Timer {
     }
 
     public void printDuration(String msg) {
+        long duration = this.stop();
         if(PRINT)
-            System.out.println("(" + msg + " in " + this.stop() + " milliseconds)");
+            System.out.println("(" + msg + " in " + duration  + " milliseconds)");
     }
 
 }

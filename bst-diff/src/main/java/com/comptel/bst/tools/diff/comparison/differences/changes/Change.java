@@ -5,8 +5,15 @@ import com.comptel.bst.tools.diff.comparison.differences.Difference;
 import com.comptel.bst.tools.diff.comparison.differences.Removal;
 import com.comptel.bst.tools.diff.parser.entity.generic.Element;
 
+/*
+ * Abstract class for the change of some element contents.
+ */
 public abstract class Change extends Difference {
 
+    /*
+     * In addition to the context, which refers to the parent,
+     * contains both the original and modified elements
+     */
     protected Element original;
     protected Element modified;
 
@@ -17,12 +24,13 @@ public abstract class Change extends Difference {
 
     @Override
     public boolean conflicts(Difference other) {
-        // In practice there should never be a case where an element is both added and modified
         if (other instanceof Addition) {
+            // In practice there should never be a case where an element is both added and modified
             Addition otherAdd = (Addition) other;
             if (this.original.matches(otherAdd.getAdded()))
                 return true;
         } else if (other instanceof Removal) {
+            // If the modified element or its ancestor is removed, this is a conflict
             Removal otherRem = (Removal) other;
             if (otherRem.getRemoved().isAncestor(this.original))
                 return true;
@@ -49,6 +57,7 @@ public abstract class Change extends Difference {
         return original;
     }
 
+    // Returns the value of the change depending on the change type. Used in output messages
     public abstract String getChange(Element elem);
 
     @Override

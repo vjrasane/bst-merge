@@ -231,10 +231,7 @@ public class CommonUtils {
     }
 
     public static void printTitle(String title) {
-        System.out.println("\n" + CommonUtils.decorateOutput(title, CommonConstants.TITLE_DECOR_MARKER)  + "\n");
+        System.out.println("\n" + CommonUtils.decorateOutput("Running " + title, CommonConstants.TITLE_DECOR_MARKER)  + "\n");
     }
 
-    public static void printStartupMsg(String programName) {
-        System.out.println("\n" + CommonUtils.decorateOutput("Running " + programName, '#') + "\n");
-    }
 }

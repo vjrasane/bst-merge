@@ -5,8 +5,13 @@ import java.util.Collection;
 import com.comptel.bst.tools.diff.comparison.differences.changes.Change;
 import com.comptel.bst.tools.diff.parser.entity.generic.Element;
 
+/*
+ * Represents the insertion of an element as a child of the target element.
+ * The context of the difference refers to the parent.
+ */
 public final class Addition extends SingleContext {
 
+    // The added element
     protected Element added;
 
     protected Addition(Element context, Element added) {
@@ -16,15 +21,20 @@ public final class Addition extends SingleContext {
 
     @Override
     public boolean conflicts(Difference other) {
+        // Check the type of the other diff
         if (other instanceof Addition) {
             Addition otherAdd = (Addition) other;
+            // Addition can only conflict with another if it has the same identifier or is unique
             if (this.added.matches(otherAdd.added))
+                // Check if the conflicting additions can be combined
                 return !isMergePossible(this.context, this.added, otherAdd.added);
         } else if (other instanceof Removal) {
             Removal otherRem = (Removal) other;
+            // If the added element is somehow removed (should not be possible) or an ancestor is removed, this is a conflict
             if (this.added.matches(otherRem.removed) || otherRem.removed.isAncestor(this.context))
                 return true;
         } else if (other instanceof Change)
+            // Reverse call to not duplicate code
             return other.conflicts(this);
         return false;
     }
@@ -42,6 +52,7 @@ public final class Addition extends SingleContext {
         return "added " + this.added.toExpandedString();
     }
 
+    // Add the inserted element to the context
     @Override
     public void apply() {
         this.context.addElement(this.added);

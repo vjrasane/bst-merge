@@ -2,7 +2,10 @@ package com.comptel.bst.tools.diff.comparison.differences;
 
 import com.comptel.bst.tools.diff.parser.entity.generic.Element;
 
-
+/*
+ * Common superclass that holds the context elements. As of yet ther are no multi-context
+ * diffs supported, but in the future copy and uncopy could be added.
+ */
 public abstract class SingleContext extends Difference {
 
     protected Element context;

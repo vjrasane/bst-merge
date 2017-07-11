@@ -2,9 +2,13 @@ package com.comptel.bst.tools.diff.comparison.differences;
 
 import com.comptel.bst.tools.diff.parser.entity.generic.Element;
 
-
+/*
+ * Represents the deletion of an element from a parent element.
+ * The context of the difference refers to the parent.
+ */
 public final class Removal extends SingleContext {
 
+    // The removed element
     protected Element removed;
 
     public Removal(Element context, Element removed) {
@@ -15,8 +19,10 @@ public final class Removal extends SingleContext {
     @Override
     public boolean conflicts(Difference other) {
         if(other instanceof Removal)
+            // Removals can never conflict with one another
             return false;
         else
+            // Reverse call to reuse code
             return other.conflicts(this);
     }
 
@@ -33,6 +39,7 @@ public final class Removal extends SingleContext {
         return "removed " + this.removed.toSimpleString();
     }
 
+    // Remove the deleted element from the context
     @Override
     public void apply() {
         this.context.removeElement(this.removed);

@@ -14,32 +14,52 @@ import com.comptel.bst.tools.common.CommonUtils;
 import com.comptel.bst.tools.diff.comparison.differences.Difference;
 import com.comptel.bst.tools.diff.utils.DiffUtils;
 
+/*
+ * General element class. Once the conversion of XML into internal objects is complete, all data
+ * is stored as these element objects and knowledge about any subclasses is lost. Therefore, the
+ * merge algorithm operates entirely by processing these elements and does so based on the information
+ * that is stored in them. This information consists of:
+ *          - Tag name
+ *          - Element type (value, container, hybrid, flag)
+ *          - Identifier
+ *          - Uniqueness
+ *          - Contained elements
+ *          - Element attributes
+ *          - Element value
+ *          - Transient data
+ */
 public class Element implements Serializable, Comparable<Element> {
 
     private static final long serialVersionUID = 1L;
 
+    /*
+     *  Tag dictates what the name of the element in the XML is and
+     *  its occurrence restrictions, which could make it unique, identifiable
+     *  or unrestricted
+     */
     private final Tag tag;
 
+    // Element type dictates what type of content it can hold: other elements, only string data, both or neither.
     private final Type type;
-    private String value;
 
+    private String value; // The possible string data value of the element
+
+    /*
+     *  Elements mapped by their tag. This speeds up the matching process as
+     *  elements of the same type are retrieved in constant time. This means that unique
+     *  elements are matched in O(1) time and identifiable in O(D), where D is the branching factor
+     */
     private Map<Tag, List<Element>> elementsByTag = new HashMap<Tag, List<Element>>();
+
+    // The attributes stored as key-value pairs
     private Map<String, String> attributes = new HashMap<String, String>();
+
+    // Transient data similar to the attributes but is not present in the actual XMLs
     private Map<String, String> transientData = new HashMap<String, String>();
 
+    // Parent is stored for convenience in determining ancestry
     private Element parent;
 
-    public static Element emptyCopy(Element elem) {
-        return new Element(elem.type, elem.tag);
-    }
-
-    public static Element group(Tag tag) {
-        return new Element(tag);
-    }
-
-    public static Element value(Tag tag, String value) {
-        return new Element(tag, value);
-    }
 
     protected Element(Tag tag) {
         this(Element.Type.GROUP, tag);
@@ -65,27 +85,6 @@ public class Element implements Serializable, Comparable<Element> {
         this.value = value;
     }
 
-    public Element attr(String key, String value) {
-        this.addAttr(key, value);
-        return this;
-    }
-
-    public void addAttr(Attribute attr) {
-        this.addAttr(attr.getName(), attr.getValue());
-    }
-
-    public void addAttr(String name, String value) {
-        this.attributes.put(name, value);
-    }
-
-    public void setData(String name, String value) {
-        this.transientData.put(name, value);
-    }
-
-    public String getData(String name) {
-        return this.transientData.get(name);
-    }
-
     /*
      * Adds an element to the map of child elements. Checks whether the added element is unique, or if the same element already exists
      * (based on ID or equality). If the element exists, assume the merge can be done (since its checked when difference conflicts are
@@ -93,18 +92,23 @@ public class Element implements Serializable, Comparable<Element> {
      */
     public void addElement(Element elem) {
         if (!this.type.container)
+            // If this element somehow isn't a container, nothing can be added to it. This should not ever happen though.
             throw new UnsupportedOperationException("Cannot add an element to an element of type " + this.type);
         if (elem == null)
+            // Should never occur but lets be sure
             throw new IllegalStateException("Attempting to add a null element to " + this);
 
         List<Element> elems = elementsByTag.get(elem.getTag());
         Element existing = null;
         if (elems == null) {
-            // No elements with such tag exist
+            // No elements with such tag exist so we can freely add it
             elems = new ArrayList<Element>();
             elementsByTag.put(elem.getTag(), elems);
         } else if (elems.size() > 0) {
-            // Elements exist, check if they conflict with the added element
+            /*
+             * Elements exist, check if they conflict with the added element i.e.
+             * check if there is a unique element or one with the same identifier
+             */
             existing = CommonUtils.findFirst(elems, e -> e.matches(elem));
         }
 
@@ -118,173 +122,13 @@ public class Element implements Serializable, Comparable<Element> {
         elem.setParent(this);
     }
 
-    public List<Difference> compare(Element context, Element other) {
-        if (!this.type.equals(other.type))
-            throw new IllegalStateException("Cannot compare elements of type" + this.type + " and " + other.type);
-        if (!CommonUtils.nullSafeEquals(this.tag, other.tag))
-            throw new IllegalStateException("Cannot compare elements " + this.tag + " and " + other.tag);
-
-        List<Difference> diffs = new ArrayList<Difference>();
-
-        if (this.type.container)
-            diffs.addAll(DiffUtils.compareChildElements(this, this.getElementsByTag(), other.getElementsByTag()));
-        if (this.type.valued)
-            diffs.addAll(DiffUtils.compareValues(this, other));
-        diffs.addAll(DiffUtils.compareAttributes(this, other));
-        return diffs;
-    }
-
-    @Override
-    public int compareTo(Element o) {
-        if (!this.tag.equals(o.tag))
-            return this.tag.getName().compareTo(o.getTag().getName());
-        if (this.tag.isIdentifiable())
-            return this.getId().compareTo(o.getId());
-        if (this.type.valued && this.value != null)
-            return this.value.compareTo(o.getValue());
-        return 0;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Element other = (Element) obj;
-        if (attributes == null) {
-            if (other.attributes != null)
-                return false;
-        } else if (!attributes.equals(other.attributes))
-            return false;
-        if (elementsByTag == null) {
-            if (other.elementsByTag != null)
-                return false;
-        } else if (!elementsByTag.equals(other.elementsByTag))
-            return false;
-        if (tag == null) {
-            if (other.tag != null)
-                return false;
-        } else if (!tag.equals(other.tag))
-            return false;
-        if (type != other.type)
-            return false;
-        if (value == null) {
-            if (other.value != null)
-                return false;
-        } else if (!value.equals(other.value))
-            return false;
-        return true;
-    }
-
-    public Element findIdElement(Tag tag, String id) {
-        Collection<Element> elems = this.elementsByTag.get(tag);
-        if (elems != null) {
-            List<Element> matching = elems.stream().filter(e -> e.getId().equals(id)).collect(Collectors.toList());
-            if (matching.size() > 1)
-                throw new IllegalStateException("More than one instance of an element with ID '" + id + "' found in " + this);
-            return matching.size() > 0 ? matching.get(0) : null;
-        }
-        return null;
-    }
-
-    public Element findUniqueElement(Tag tag) {
-        Collection<Element> elems = this.elementsByTag.get(tag);
-        return DiffUtils.getUniqueElem(tag, elems);
-    }
-
-    public String getAttr(String id) {
-        return this.attributes.get(id);
-    }
-
-    public Map<String, String> getAttributes() {
-        return attributes;
-    }
-
-    public List<Element> getElements(Tag tag) {
-        List<Element> elems = this.elementsByTag.get(tag);
-        return elems != null ? elems : Collections.emptyList();
-    }
-
-    public Map<Tag, List<Element>> getElementsByTag() {
-        return elementsByTag;
-    }
-
-    public String getId() {
-        return this.tag.getId(this);
-    }
-
-    public Element getParent() {
-        return parent;
-    }
-
-    public Tag getTag() {
-        return tag;
-    }
-
-    public Type getType() {
-        return type;
-    }
-
-    public String getValue() {
-        if (!this.type.valued)
-            throw new UnsupportedOperationException("Cannot read value from an elment of type " + this.type);
-        return value;
-    }
-
-    @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((attributes == null) ? 0 : attributes.hashCode());
-        result = prime * result + ((elementsByTag == null) ? 0 : elementsByTag.hashCode());
-        result = prime * result + ((tag == null) ? 0 : tag.hashCode());
-        result = prime * result + ((type == null) ? 0 : type.hashCode());
-        result = prime * result + ((value == null) ? 0 : value.hashCode());
-        return result;
-    }
-
-    /**
-     * Checks whether the element is the same as the other, based on the tag identifiers, uniqueness and finally equality.
-     * 
-     * @param other
-     * @return boolean
+    /*
+     * Merges the contents of two elements, assuming there are no differences in the values or attributes between the two
      */
-    public boolean isSame(Element other) {
-        if (!this.tag.equals(other.tag))
-            return false;
-        if (this.tag.isIdentifiable())
-            return CommonUtils.nullSafeEquals(this.getId(), other.getId());
-        if (this.tag.isUnique())
-            return true;
-        return this.equals(other);
-    }
-
-    public boolean isMovable(Element target) {
-        return false;
-    }
-
-    public boolean matches(Element o) {
-        if (!this.tag.equals(o.tag))
-            return false;
-        if (DiffUtils.nullSafeMatches(this.parent, o.parent)) {
-            return this.isSame(o);
+    private void merge(Element elem) {
+        for (Tag tag : elem.getElementsByTag().keySet()) {
+            elem.elementsByTag.get(tag).forEach(e -> this.addElement(e));
         }
-        return false;
-    }
-
-    public void removeAttr(Attribute attr) {
-        this.removeAttr(attr.getName());
-    }
-
-    public void removeAttr(String id) {
-        this.attributes.remove(id);
-    }
-
-    public boolean isHidden() {
-        return this.tag.isHidden();
     }
 
     public void removeElement(Element elem) {
@@ -300,6 +144,135 @@ public class Element implements Serializable, Comparable<Element> {
         }
     }
 
+    /*
+     * Compares this element to the other. The context references the parent element in the
+     * original tree. The comparison works recursively so that the original tree is traversed
+     * in its entirety. Returns the complete set of detected changes.
+     */
+    public List<Difference> compare(Element context, Element other) {
+        // The types and tags should always match when comparing
+        if (!this.type.equals(other.type))
+            throw new IllegalStateException("Cannot compare elements of type" + this.type + " and " + other.type);
+        if (!CommonUtils.nullSafeEquals(this.tag, other.tag))
+            throw new IllegalStateException("Cannot compare elements " + this.tag + " and " + other.tag);
+
+        List<Difference> diffs = new ArrayList<Difference>();
+        if (this.type.container)
+            // If this element is a container, compare the child elements recursively
+            diffs.addAll(DiffUtils.compareChildElements(this, this.getElementsByTag(), other.getElementsByTag()));
+        if (this.type.valued)
+            // If this element has a value, compare it to the other elements value
+            diffs.addAll(DiffUtils.compareValues(this, other));
+        // Always compare the attributes (although they might be empty)
+        diffs.addAll(DiffUtils.compareAttributes(this, other));
+        return diffs;
+    }
+
+    // Used for sorting the element lists
+    @Override
+    public int compareTo(Element o) {
+        if (!this.tag.equals(o.tag))
+            // If different tags, compare the string values (alphabetical order)
+            return this.tag.getName().compareTo(o.getTag().getName());
+        if (this.tag.isIdentifiable())
+            // If the tags are same and have an identifier, compare the IDs of the elements (alpha/numerical order)
+            return this.getId().compareTo(o.getId());
+        if (this.type.valued && this.value != null)
+            // If the elements are valued, compare the values
+            return this.value.compareTo(o.getValue());
+        /*
+         *  If none of these apply, consider them to be equal
+         *  (this would mean non-unique, non-identifiable and non-valued element)
+         */
+        return 0;
+    }
+
+
+
+    /*
+     * Finds a child element with the given tag and identifier.
+     * Doesn't actually check that the element is identifiable.
+     */
+    public Element findIdElement(Tag tag, String id) {
+        Collection<Element> elems = this.elementsByTag.get(tag);
+        if (elems != null) {
+            List<Element> matching = elems.stream().filter(e -> e.getId().equals(id)).collect(Collectors.toList());
+            if (matching.size() > 1)
+                // Somehow there were several elements with the same ID which should not happen
+                throw new IllegalStateException("More than one instance of an element with ID '" + id + "' found in " + this);
+            return matching.size() > 0 ? matching.get(0) : null;
+        }
+        return null;
+    }
+
+    /*
+     * Finds a unique child element with the given tag
+     * Doesn't actually check that the element is unique
+     * (but throws and exception if there are several elements with the given tag)
+     */
+    public Element findUniqueElement(Tag tag) {
+        Collection<Element> elems = this.elementsByTag.get(tag);
+        return DiffUtils.getUniqueElem(tag, elems);
+    }
+
+    // Gets all child elements with the given tag
+    public List<Element> getElements(Tag tag) {
+        List<Element> elems = this.elementsByTag.get(tag);
+        return elems != null ? elems : Collections.emptyList();
+    }
+
+    public String getValue() {
+        if (!this.type.valued)
+            // Cannot return a value of an element that is not valued. This should not happen.
+            throw new UnsupportedOperationException("Cannot read value from an elment of type " + this.type);
+        return value;
+    }
+
+    /*
+     * Matches the elements including the entire ancestry
+     * (so two parameters in different nodes are not matched, for example)
+     */
+    public boolean matches(Element o) {
+        if (!this.tag.equals(o.tag))
+            return false;
+        if (DiffUtils.nullSafeMatches(this.parent, o.parent)) {
+            return this.isSame(o);
+        }
+        return false;
+    }
+
+    /**
+     * Checks whether the element is the same as the other, based on the tag
+     * identifiers, uniqueness and finally equality (without considering ancestry).
+     */
+    public boolean isSame(Element other) {
+        if (!this.tag.equals(other.tag))
+            return false;
+        if (this.tag.isIdentifiable())
+            return CommonUtils.nullSafeEquals(this.getId(), other.getId());
+        if (this.tag.isUnique())
+            return true;
+        return this.equals(other);
+    }
+
+    // If the element is hidden, it is not displayed in the output message
+    public boolean isHidden() {
+        return this.tag.isHidden();
+    }
+
+    /*
+     *  Output value by default is the actual value of the element.
+     *  Note that this won't be used for any elements that actually
+     *  don't have a value
+     */
+    public String getOutputValue() {
+        return this.value;
+    }
+
+    public void removeAttr(String id) {
+        this.attributes.remove(id);
+    }
+
     public void setAttr(Attribute attr) {
         this.setAttr(attr.getName(), attr.getValue());
     }
@@ -309,10 +282,6 @@ public class Element implements Serializable, Comparable<Element> {
             this.attributes.remove(id);
         else
             this.attributes.put(id, value);
-    }
-
-    public void setAttributes(Map<String, String> attributes) {
-        this.attributes = attributes;
     }
 
     public void setElementsByTag(Map<Tag, List<Element>> elementsByTag) {
@@ -325,10 +294,6 @@ public class Element implements Serializable, Comparable<Element> {
 
     public void setParent(Element parent) {
         this.parent = parent;
-    }
-
-    public String getOutputValue() {
-        return this.value;
     }
 
     public void setValue(String value) {
@@ -348,16 +313,6 @@ public class Element implements Serializable, Comparable<Element> {
     @Override
     public String toString() {
         return this.tag.toString() + "={ " + CommonUtils.mapToString(this.attributes) + this.type.toString(this) + " }"; // "<" + this.getTag()
-        // + Utils.mapToString(this.attributes) + (this.value != null ? ">" + this.value + "</>" : "/>");
-    }
-
-    /*
-     * Merges the contents of two elements, assuming there are no differences in the values or attributes between the two
-     */
-    private void merge(Element elem) {
-        for (Tag tag : elem.getElementsByTag().keySet()) {
-            elem.elementsByTag.get(tag).forEach(e -> this.addElement(e));
-        }
     }
 
     public static enum Type {
@@ -420,33 +375,84 @@ public class Element implements Serializable, Comparable<Element> {
         return false;
     }
 
-    public static Element flag(Tag tag) {
-        return new Element(Type.FLAG, tag);
-    }
-
     public Element id(String id) {
         this.setId(id);
         return this;
     }
 
-    public List<Tag> getTagPath() {
-        return DiffUtils.getTagPath(this);
+    public String getAttr(String id) {
+        return this.attributes.get(id);
     }
 
-    public List<Tag> getTagPath(boolean reverse) {
-        return DiffUtils.getTagPath(this, reverse);
+    public Map<String, String> getAttributes() {
+        return attributes;
     }
 
-    public Map<String, String> getTransientData() {
-        return transientData;
+    public Map<Tag, List<Element>> getElementsByTag() {
+        return elementsByTag;
     }
 
-    public void setTransientData(Map<String, String> transientData) {
-        this.transientData = transientData;
+    public String getId() {
+        return this.tag.getId(this);
     }
 
-    public void removeSelf() {
-        this.parent.removeElement(this);
+    public Element getParent() {
+        return parent;
+    }
+
+    public Tag getTag() {
+        return tag;
+    }
+
+    public Type getType() {
+        return type;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Element other = (Element) obj;
+        if (attributes == null) {
+            if (other.attributes != null)
+                return false;
+        } else if (!attributes.equals(other.attributes))
+            return false;
+        if (elementsByTag == null) {
+            if (other.elementsByTag != null)
+                return false;
+        } else if (!elementsByTag.equals(other.elementsByTag))
+            return false;
+        if (tag == null) {
+            if (other.tag != null)
+                return false;
+        } else if (!tag.equals(other.tag))
+            return false;
+        if (type != other.type)
+            return false;
+        if (value == null) {
+            if (other.value != null)
+                return false;
+        } else if (!value.equals(other.value))
+            return false;
+        return true;
+    }
+
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((attributes == null) ? 0 : attributes.hashCode());
+        result = prime * result + ((elementsByTag == null) ? 0 : elementsByTag.hashCode());
+        result = prime * result + ((tag == null) ? 0 : tag.hashCode());
+        result = prime * result + ((type == null) ? 0 : type.hashCode());
+        result = prime * result + ((value == null) ? 0 : value.hashCode());
+        return result;
     }
 
 }

@@ -4,8 +4,12 @@ import com.comptel.bst.tools.common.CommonUtils;
 import com.comptel.bst.tools.diff.comparison.differences.Difference;
 import com.comptel.bst.tools.diff.parser.entity.generic.Element;
 
+/*
+ * Represents a modification of an attribute of an element
+ */
 public final class AttributeChange extends Change {
 
+    // The name of the modified attribute
     private String attribute;
 
     public AttributeChange(String attribute, Element original, Element modified) {
@@ -16,11 +20,12 @@ public final class AttributeChange extends Change {
     @Override
     public boolean conflicts(Difference other) {
         if (other instanceof AttributeChange) {
+            // If the same attribute is modified to a different value, this is a conflict
             AttributeChange otherChg = (AttributeChange) other;
             if(this.modified.matches(otherChg.modified) && this.attribute.equals(otherChg.attribute))
                 return !CommonUtils.nullSafeEquals(this.modified.getAttr(this.attribute), otherChg.modified.getAttr(this.attribute));
         }
-        return super.conflicts(other);
+        return super.conflicts(other); // Check the general change conflicts
     }
 
     @Override
@@ -29,6 +34,7 @@ public final class AttributeChange extends Change {
                 + this.modified.getAttr(this.attribute) + "'";
     }
 
+    // Apply the change by setting the attribute in the original element to the modified value
     @Override
     public void apply() {
         this.original.setAttr(this.attribute, modified.getAttr(this.attribute));
@@ -39,6 +45,7 @@ public final class AttributeChange extends Change {
         return super.toString() + "<" + this.attribute +">"+ super.getString();
     }
 
+    // Return the value of the changed attribute
     @Override
     public String getChange(Element elem){
         return elem.getAttr(this.attribute);
