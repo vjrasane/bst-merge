@@ -14,23 +14,34 @@ import com.comptel.bst.tools.diff.parser.entity.generic.Element;
 import com.comptel.bst.tools.diff.parser.entity.jaxb.JAXBObject;
 import com.comptel.bst.tools.diff.utils.DiffConstants;
 
+/*
+ * XML representation of the connector element of the branching nodes
+ */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = { "value" })
 @XmlRootElement(name = "jump")
 public class JAXBJump implements JAXBObject {
-
+    /*
+     * Confusingly the index attribute functions as a relative
+     * reference to other nodes similar to the connector attributes
+     * It is not actually an index in the list of the jumps as one might expect
+     */
     @XmlAttribute(name = "index")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     protected String index;
+
+    // Value is always empty
     @XmlValue
     protected String value;
 
+    /*
+     * Transient data that is not present in the XML and is populated
+     * during the pre-processing
+     */
     @XmlTransient
     private String jumpId;
-
     @XmlTransient
     private String targetName;
-
     @XmlTransient
     private String position;
 
@@ -40,6 +51,7 @@ public class JAXBJump implements JAXBObject {
         this.convert(j);
     }
 
+    // Does the conversion from internal element object into XML object
     @Override
     public void convert(Element j) {
         String target = j.getValue();

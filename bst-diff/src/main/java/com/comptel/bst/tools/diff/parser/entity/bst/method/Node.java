@@ -11,7 +11,6 @@ import com.comptel.bst.tools.diff.parser.entity.generic.Tag;
 import com.comptel.bst.tools.diff.parser.entity.jaxb.method.JAXBExec;
 import com.comptel.bst.tools.diff.parser.entity.jaxb.method.JAXBNodeOutputParameter;
 import com.comptel.bst.tools.diff.utils.DiffConstants;
-import com.comptel.bst.tools.diff.utils.DiffUtils;
 
 /*
  * Internal representation of the flowchart nodes
@@ -88,7 +87,7 @@ public class Node extends Element implements Conversible<JAXBExec> {
 
     @Override
     public String getId() {
-        return DiffUtils.getAttributeId(this, ID_ATTR);
+        return this.getAttributeId(ID_ATTR);
     }
 
     public String getName() {

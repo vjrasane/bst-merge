@@ -131,16 +131,23 @@ public class Element implements Serializable, Comparable<Element> {
         }
     }
 
+    // Removes an element from the list of child elements
     public void removeElement(Element elem) {
         if (!this.type.container)
+            // Cannot remove an element from a non-container element. This error should not occur
             throw new UnsupportedOperationException("Cannot remove an element from an element of type " + this.type);
-        Collection<Element> coll = this.elementsByTag.get(elem.getTag());
-        Element toBeRemoved = CommonUtils.findFirst(coll, e -> e.matches(elem));
+        Collection<Element> coll = this.elementsByTag.get(elem.getTag()); // Get the list of elements with the same tag
+        Element toBeRemoved = CommonUtils.findFirst(coll, e -> e.matches(elem)); // Find the correct element
         if (toBeRemoved != null) {
+            // If the element exists, remove it (otherwise fall through)
             coll.remove(toBeRemoved);
             if (coll.isEmpty())
+                /*
+                 *  If there are no more elements with that tag, remove the list
+                 *  (indicates to other handlers that theres no need to process them)
+                 */
                 this.elementsByTag.remove(elem.getTag());
-            elem.setParent(null);
+            elem.setParent(null); // Remember to remove this as the paren
         }
     }
 
@@ -187,8 +194,6 @@ public class Element implements Serializable, Comparable<Element> {
         return 0;
     }
 
-
-
     /*
      * Finds a child element with the given tag and identifier.
      * Doesn't actually check that the element is identifiable.
@@ -211,8 +216,12 @@ public class Element implements Serializable, Comparable<Element> {
      * (but throws and exception if there are several elements with the given tag)
      */
     public Element findUniqueElement(Tag tag) {
-        Collection<Element> elems = this.elementsByTag.get(tag);
-        return DiffUtils.getUniqueElem(tag, elems);
+        return DiffUtils.getUniqueElem(tag, this.getElements(tag));
+    }
+
+    // Finds the first matching generic element
+    public Element findGenericElement(Element elem) {
+        return this.elementsByTag.get(elem.tag).stream().filter(e -> e.equals(elem)).findFirst().orElse(null);
     }
 
     // Gets all child elements with the given tag
@@ -221,11 +230,19 @@ public class Element implements Serializable, Comparable<Element> {
         return elems != null ? elems : Collections.emptyList();
     }
 
-    public String getValue() {
-        if (!this.type.valued)
-            // Cannot return a value of an element that is not valued. This should not happen.
-            throw new UnsupportedOperationException("Cannot read value from an elment of type " + this.type);
-        return value;
+    // Determines if the given element is an ancestor of this element
+    public boolean hasAncestor(Element other) {
+        Element current = this;
+        do {
+            if (current.matches(other))
+                return true;
+        } while ((current = current.getParent()) != null);
+        return false;
+    }
+
+    // Reverse of hasAncestor
+    public boolean isAncestor(Element other) {
+        return other.hasAncestor(this);
     }
 
     /*
@@ -269,52 +286,27 @@ public class Element implements Serializable, Comparable<Element> {
         return this.value;
     }
 
-    public void removeAttr(String id) {
-        this.attributes.remove(id);
-    }
-
-    public void setAttr(Attribute attr) {
-        this.setAttr(attr.getName(), attr.getValue());
-    }
-
-    public void setAttr(String id, String value) {
-        if (value == null)
-            this.attributes.remove(id);
-        else
-            this.attributes.put(id, value);
-    }
-
-    public void setElementsByTag(Map<Tag, List<Element>> elementsByTag) {
-        this.elementsByTag = elementsByTag;
-    }
-
-    public void setId(String id) {
-        this.tag.setId(id, this);
-    }
-
-    public void setParent(Element parent) {
-        this.parent = parent;
-    }
-
-    public void setValue(String value) {
-        if (!this.type.valued)
-            throw new UnsupportedOperationException("Cannot set value to an elment of type " + this.type);
-        this.value = value;
-    }
-
+    // This is used in most output messages and is overridden in several subclasses
     public String toSimpleString() {
         return this.tag.toSimpleString(this);
     }
 
+    // Some output messages use this to display a more detailed string. Overridden in subclasses.
     public String toExpandedString() {
         return this.toSimpleString();
     }
 
+    // String representation of the object. This is not used in the output messages but rather is useful for debugging
     @Override
     public String toString() {
-        return this.tag.toString() + "={ " + CommonUtils.mapToString(this.attributes) + this.type.toString(this) + " }"; // "<" + this.getTag()
+        return this.tag.toString() + "={ " + CommonUtils.mapToString(this.attributes) + this.type.toString(this) + " }";
     }
 
+    /*
+     * Enumeral for storing the type of the element.
+     * Each type can be valued, container, both or neither.
+     * The type includes a method for displaying the element as a string.
+     */
     public static enum Type {
         GROUP(false, true) {
             @Override
@@ -346,8 +338,36 @@ public class Element implements Serializable, Comparable<Element> {
         public abstract String toString(Element element);
     }
 
-    public Element findGenericElement(Element elem) {
-        return this.elementsByTag.get(elem.tag).stream().filter(e -> e.equals(elem)).findFirst().orElse(null);
+    /*
+     * Some convenience methods, getters and setters
+     */
+
+    public static Element flag(Tag tag) {
+        return new Element(Type.FLAG, tag);
+    }
+
+    public static Element group(Tag tag) {
+        return new Element(tag);
+    }
+
+    public static Element value(Tag tag, String value) {
+        return new Element(tag, value);
+    }
+
+    public void addAttr(Attribute attr) {
+        this.addAttr(attr.getName(), attr.getValue());
+    }
+
+    public void addAttr(String name, String value) {
+        this.attributes.put(name, value);
+    }
+
+    public void setData(String name, String value) {
+        this.transientData.put(name, value);
+    }
+
+    public String getData(String name) {
+        return this.transientData.get(name);
     }
 
     public boolean isIdentifiable() {
@@ -358,21 +378,23 @@ public class Element implements Serializable, Comparable<Element> {
         return this.tag.isUnique();
     }
 
-    public boolean isAncestor(Element other) {
-        return other.hasAncestor(this);
+    public void removeAttr(String id) {
+        this.attributes.remove(id);
     }
 
-    public List<Element> getPath(boolean reverse) {
-        return DiffUtils.getElementPath(this, reverse);
+    public void setAttr(Attribute attr) {
+        this.setAttr(attr.getName(), attr.getValue());
     }
 
-    public boolean hasAncestor(Element other) {
-        Element current = this;
-        do {
-            if (current.matches(other))
-                return true;
-        } while ((current = current.getParent()) != null);
-        return false;
+    public void setAttr(String id, String value) {
+        if (value == null)
+            this.attributes.remove(id);
+        else
+            this.attributes.put(id, value);
+    }
+
+    public void setElementsByTag(Map<Tag, List<Element>> elementsByTag) {
+        this.elementsByTag = elementsByTag;
     }
 
     public Element id(String id) {
@@ -382,6 +404,13 @@ public class Element implements Serializable, Comparable<Element> {
 
     public String getAttr(String id) {
         return this.attributes.get(id);
+    }
+
+    public String getAttributeId(String attrName) {
+        String attr = this.getAttributes().get(attrName);
+        if (attr == null)
+            throw new IllegalStateException("Missing identifier attribute '" + attrName + "' in element of type '" + elem.getTag() + "'");
+        return attr;
     }
 
     public Map<String, String> getAttributes() {
@@ -396,8 +425,30 @@ public class Element implements Serializable, Comparable<Element> {
         return this.tag.getId(this);
     }
 
+    public void setId(String id) {
+        this.tag.setId(id, this);
+    }
+
+    public void setValue(String value) {
+        if (!this.type.valued)
+            // Cannot set the value of an element that is not valued. Should not happen
+            throw new UnsupportedOperationException("Cannot set value to an elment of type " + this.type);
+        this.value = value;
+    }
+
+    public String getValue() {
+        if (!this.type.valued)
+            // Cannot return a value of an element that is not valued. This should not happen.
+            throw new UnsupportedOperationException("Cannot read value from an elment of type " + this.type);
+        return value;
+    }
+
     public Element getParent() {
         return parent;
+    }
+
+    public void setParent(Element parent) {
+        this.parent = parent;
     }
 
     public Tag getTag() {

@@ -14,7 +14,7 @@ import com.comptel.bst.tools.diff.comparison.OutputTree;
 import com.comptel.bst.tools.diff.comparison.differences.Difference;
 import com.comptel.bst.tools.diff.comparison.differences.Difference.Branch;
 import com.comptel.bst.tools.diff.parser.BSTReader;
-import com.comptel.bst.tools.diff.parser.entity.Yaml;
+import com.comptel.bst.tools.diff.parser.entity.generic.Yaml;
 import com.comptel.bst.tools.diff.utils.DiffConstants;
 import com.comptel.bst.tools.diff.utils.OutputCharset;
 

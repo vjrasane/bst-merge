@@ -9,10 +9,15 @@ import com.comptel.bst.tools.diff.parser.entity.bst.method.Method;
 import com.comptel.bst.tools.diff.parser.entity.generic.Element;
 import com.comptel.bst.tools.diff.utils.DiffUtils;
 
+/*
+ * Common abstract superclass for the JAXBMethod and JAXBStep classes, as
+ * they share several elements.
+ */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = { "clazz", "description", "activityDuration", "activityName" })
 public abstract class JAXBActivity implements JAXBObject {
 
+    // Common unique configuration elements
     @XmlElement(name = "class", required = false)
     protected String clazz;
     @XmlElement(required = true)
@@ -28,13 +33,19 @@ public abstract class JAXBActivity implements JAXBObject {
         this.convert(elem);
     }
 
+    // Does the conversion from internal element object into XML object
     @Override
     public void convert(Element elem) {
+        // Set the common unique elements
         this.clazz = DiffUtils.nullSafeValue(elem.findUniqueElement(Method.CLASS_TAG));
         this.activityName = DiffUtils.nullSafeValue(elem.findUniqueElement(Method.ACTIVITY_NAME_TAG));
         this.activityDuration = DiffUtils.nullSafeValue(elem.findUniqueElement(Method.ACTIVITY_DURATION_TAG));
         this.description = DiffUtils.nullSafeValue(elem.findUniqueElement(Method.DESCRIPTION_TAG));
     }
+
+    /*
+     * Getters and setters
+     */
 
     public String getActivityDuration() {
         return activityDuration;

@@ -24,19 +24,24 @@ import com.comptel.bst.tools.diff.parser.entity.bst.method.Jump;
 import com.comptel.bst.tools.diff.parser.entity.bst.method.Links;
 import com.comptel.bst.tools.diff.parser.entity.bst.method.Node;
 import com.comptel.bst.tools.diff.parser.entity.bst.method.NodeOutputParameter;
+import com.comptel.bst.tools.diff.parser.entity.bst.method.StandardJump;
 import com.comptel.bst.tools.diff.parser.entity.generic.Element;
 import com.comptel.bst.tools.diff.parser.entity.jaxb.JAXBObject;
 import com.comptel.bst.tools.diff.parser.entity.jaxb.JAXBParameter;
 import com.comptel.bst.tools.diff.utils.DiffConstants;
 
+/*
+ * XML representation of a flowchart node
+ */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = { "jump", "instanceDescription", "parameter", "outParameter" })
 @XmlRootElement(name = "exec")
 public class JAXBExec implements JAXBObject {
 
+    // Node attributes including connectors
     @XmlAttribute(name = "id", required = true)
     @XmlJavaTypeAdapter(NormalizedStringAdapter.class)
-    protected String id;
+    protected String id; // Identifier (quite self-evident)
     @XmlAttribute(name = "jump0")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     protected String jump0;
@@ -47,13 +52,23 @@ public class JAXBExec implements JAXBObject {
     @XmlJavaTypeAdapter(NormalizedStringAdapter.class)
     protected String name;
 
+    // List of additional connectors present in branching nodes
     protected List<JAXBJump> jump;
+
+    // List of description elements
     @XmlElement(name = "instance_description")
     protected List<JAXBInstanceDescription> instanceDescription;
+
+    // Input parameters, confusingly not tagged as such
     protected List<JAXBParameter> parameter;
+    // Output parameters
     @XmlElement(name = "out_parameter")
     protected List<JAXBNodeOutputParameter> outParameter;
 
+    /*
+     * Transient data about the node, that is not present in the XML
+     * and is populated once it is pre-processed
+     */
     @XmlTransient
     private String primaryJumpId;
     @XmlTransient
@@ -66,7 +81,6 @@ public class JAXBExec implements JAXBObject {
 
     @XmlTransient
     private String position;
-
     @XmlTransient
     private Map<String, String> references = new HashMap<String, String>();
 
@@ -76,21 +90,37 @@ public class JAXBExec implements JAXBObject {
         this.convert(e);
     }
 
+    // Does the conversion from internal element object into XML object
     @Override
     public void convert(Element elem) {
+        // Set the non-connector attributes
         this.id = elem.getId();
         this.name = elem.getAttr(Node.NAME_ATTR);
 
+        // Position data is used later to sort the nodes
         this.position = elem.getData(Node.POS_DATA);
 
+        /*
+         *  Handle the connector attributes and elements.
+         *  At this point they should be already post-processed
+         *  so that the values are again relative
+         */
         Element links = elem.findUniqueElement(Links.TAG);
         if (links != null) {
-            this.jump0 = getLinkValue(links.findUniqueElement(Links.SECONDARY_LINK_TAG));
-            this.jump1 = getLinkValue(links.findUniqueElement(Links.PRIMARY_LINK_TAG));
+            // Primary and secondary links
+            this.jump0 = getLinkValue(links.findUniqueElement(StandardJump.SECONDARY_LINK_TAG));
+            this.jump1 = getLinkValue(links.findUniqueElement(StandardJump.PRIMARY_LINK_TAG));
 
+            // Convert the additional links as they are added
             List<Element> additionalLinks = links.getElements(Jump.TAG);
             additionalLinks.forEach(l -> this.getJump().add(new JAXBJump(l)));
         }
+
+        /*
+         *  Add input and output parameters if present
+         *  (internally they are contained within a parameter group
+         *  but in the XML they are direct child elements of the node)
+         */
 
         Element input = elem.findUniqueElement(InputParameters.TAG);
         if (input != null)
@@ -100,8 +130,13 @@ public class JAXBExec implements JAXBObject {
         if (output != null)
             output.getElements(NodeOutputParameter.TAG).forEach(p -> this.getOutParameter().add(new JAXBNodeOutputParameter(p)));
 
+        // Add the input descriptions
         elem.getElements(Node.INSTANCE_DESCRIPTION_TAG).forEach(d -> this.getInstanceDescription().add(new JAXBInstanceDescription(d)));
     }
+
+    /*
+     * Convenience methods, getters and setters
+     */
 
     private String getLinkValue(Element link) {
         return CommonUtils.nullSafeApply(link, e -> e.getValue() != null ? e.getValue() : DiffConstants.DEFAULT_LINK_VALUE);

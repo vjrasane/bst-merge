@@ -7,11 +7,16 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import com.comptel.bst.tools.diff.parser.entity.bst.OutputParameters;
 import com.comptel.bst.tools.diff.parser.entity.generic.Element;
 
+/*
+ * Subclass of the general JAXBParameterGroup. Otherwise we could
+ * use that instead, but the output parameter group can have
+ * an attribute unlike the others.
+ */
 public class JAXBOutputParameters extends JAXBParameterGroup {
 
     @XmlAttribute(name = "all")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    protected String all;
+    protected String all; // Sole attribute
 
     public JAXBOutputParameters() {
         super();
@@ -21,11 +26,16 @@ public class JAXBOutputParameters extends JAXBParameterGroup {
         super(e);
     }
 
+    // Does the conversion from internal element object into XML object
     @Override
     public void convert(Element elem) {
         super.convert(elem);
         this.all = elem.getAttr(OutputParameters.ALL_ATTR);
     }
+
+    /*
+     * Getters and setters
+     */
 
     public String getAll() {
         return all;

@@ -6,7 +6,7 @@ import java.io.IOException;
 import org.junit.Test;
 
 import com.comptel.bst.tools.diff.parser.BSTReader;
-import com.comptel.bst.tools.diff.parser.entity.Yaml;
+import com.comptel.bst.tools.diff.parser.entity.generic.Yaml;
 import com.comptel.bst.tools.diff.utils.DiffUtils;
 
 

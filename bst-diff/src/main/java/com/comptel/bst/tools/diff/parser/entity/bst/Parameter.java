@@ -5,7 +5,6 @@ import com.comptel.bst.tools.diff.parser.entity.generic.Conversible;
 import com.comptel.bst.tools.diff.parser.entity.generic.Element;
 import com.comptel.bst.tools.diff.parser.entity.generic.Tag;
 import com.comptel.bst.tools.diff.parser.entity.jaxb.JAXBParameter;
-import com.comptel.bst.tools.diff.utils.DiffUtils;
 
 /*
  * Generic parameter object that can be used in the place of most parameters
@@ -54,7 +53,7 @@ public class Parameter extends Element implements Conversible<JAXBParameter> {
 
     @Override
     public String getId() {
-        return DiffUtils.getAttributeId(this, ID_ATTR);
+        return this.getAttributeId(ID_ATTR);
     }
 
     @Override

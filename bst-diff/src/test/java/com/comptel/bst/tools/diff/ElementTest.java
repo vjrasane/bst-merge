@@ -11,7 +11,6 @@ import org.junit.Test;
 
 import com.comptel.bst.tools.diff.parser.entity.generic.Element;
 import com.comptel.bst.tools.diff.parser.entity.generic.Tag;
-import com.comptel.bst.tools.diff.utils.DiffUtils;
 
 
 public class ElementTest {
@@ -277,7 +276,7 @@ public class ElementTest {
 
         @Override
         public String getId() {
-            return DiffUtils.getAttributeId(this, ID_ATTR);
+            return this.getAttributeId(ID_ATTR);
         }
 
         @Override

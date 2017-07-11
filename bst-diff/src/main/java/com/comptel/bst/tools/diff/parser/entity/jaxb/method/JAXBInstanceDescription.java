@@ -9,6 +9,9 @@ import javax.xml.bind.annotation.XmlValue;
 import com.comptel.bst.tools.diff.parser.entity.generic.Element;
 import com.comptel.bst.tools.diff.parser.entity.jaxb.JAXBObject;
 
+/*
+ * Generic description element
+ */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = { "value" })
 @XmlRootElement(name = "instance_description")

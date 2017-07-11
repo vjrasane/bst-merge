@@ -2,38 +2,26 @@ package com.comptel.bst.tools.common;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.File;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.function.BiFunction;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import org.apache.commons.lang3.StringUtils;
 
-
+/*
+ * Contains common methods or functionality that doesnt fit elsewhere
+ */
 public class CommonUtils {
 
-    public static File createTempDir() throws IOException {
-        return createTempDir("");
-    }
-
-    public static File createTempDir(String name) throws IOException {
-        Path path = Files.createTempDirectory(name + "-" + CommonConstants.TMP_DIR_PREFIX + "-" + Long.toString(System.currentTimeMillis()));
-        return path.toFile();
-    }
-
+    // Constructs a string where the given output is surrounded by the given character
     public static String decorateOutput(String output, char c) {
         int length = output.length() + 4;
         String delimiter = StringUtils.repeat(c, length);
@@ -43,14 +31,10 @@ public class CommonUtils {
         return b.toString();
     }
 
-    public static String addPadding(String s, char c) {
-        int len = CommonConstants.DEFAULT_PADDING_LENGTH - s.length();
-        String pad = StringUtils.repeat(c, len);
-        String pre = pad.substring(0, len / 2);
-        String post = pad.substring(len / 2);
-        return pre + " " + s + " " + post;
-    }
-
+    /*
+     *  Padds the given message with the given character so that the total length
+     *  of the string equals the given length.
+     */
     public static String addPadding(String s, char c, int length) {
         int len = length - s.length();
         String pad = StringUtils.repeat(c, len);
@@ -59,6 +43,11 @@ public class CommonUtils {
         return pre + " " + s + " " + post;
     }
 
+    public static String addPadding(String s, char c) {
+        return addPadding(s, c, CommonConstants.DEFAULT_PADDING_LENGTH);
+    }
+
+    // Flattens a map of collections into a single collection
     public static <K, V> Collection<V> combineCategories(Map<K, List<V>> map) {
         Collection<V> coll = new ArrayList<V>();
         for (K key : map.keySet()) {
@@ -67,10 +56,12 @@ public class CommonUtils {
         return coll;
     }
 
+    // Applies the given function safeguarding for null pointers
     public static <P, R> R nullSafeApply(P elem, Function<P, R> func) {
         return elem != null ? func.apply(elem) : null;
     }
 
+    // Determines whether the given elements are equal. Null safe.
     public static <T> boolean nullSafeEquals(T first, T second) {
         if (first == null || second == null) {
             if (first == second)
@@ -80,15 +71,12 @@ public class CommonUtils {
         return false;
     }
 
+    // Finds the first occurrence of an element that satisfies the given condition
     public static <T> T findFirst(Collection<T> elems, Function<T, Boolean> condition) {
         return elems != null ? elems.stream().filter(e -> condition.apply(e)).findFirst().orElse(null) : null;
     }
 
-    @SafeVarargs
-    public static <T> T getFirstMatch(Function<T, Boolean> matcher, T... array) {
-        return Arrays.stream(array).filter(t -> matcher.apply(t)).findFirst().orElse(null);
-    }
-
+    // Constructs a string representation of the given map
     public static <K, V> String mapToString(Map<K, V> map, boolean newLines) {
         StringBuilder b = new StringBuilder();
         for (K key : map.keySet()) {
@@ -97,16 +85,12 @@ public class CommonUtils {
         return b.toString();
     }
 
-    public static <T, K, V> Map<K, V> toMap(Collection<T> coll, Function<T, K> keyMapper, Function<T, V> valueMapper) {
-        Map<K, V> map = new HashMap<K, V>();
-        coll.forEach(t -> map.put(keyMapper.apply(t), valueMapper.apply(t)));
-        return map;
+
+    public static <K, V> String mapToString(Map<K, V> map) {
+        return mapToString(map, false);
     }
 
-    public static String indent(String string, int baseInd) {
-        return StringUtils.repeat(' ', baseInd) + string;
-    }
-
+    // Creates a deep copy of a given serializable object
     @SuppressWarnings("unchecked")
     public static <T> T deepCopy(T obj) {
         try {
@@ -130,24 +114,12 @@ public class CommonUtils {
         }
     }
 
-    @SafeVarargs
-    public static <E> E firstNotNull(E... elems) {
-        for (E e : elems) {
-            if (e != null)
-                return e;
-        }
-        return null;
-    }
-
-
-    public static <K, V> String mapToString(Map<K, V> map) {
-        return mapToString(map, false);
-    }
-
+    // Returns the first value if not null, the second value otherwise
     public static <T> T defaultIfNull(T t, T d) {
         return t != null ? t : d;
     }
 
+    // Retrieves a pair of objects for each key and executes the given function for them
     public static <T> void forAllKeys(Map<String, T> first, Map<String, T> second, BiConsumer<T, T> func) {
         Set<String> allKeys = getAllKeys(first, second);
         for (String key : allKeys) {
@@ -157,12 +129,14 @@ public class CommonUtils {
         }
     }
 
+    // Get a set containing all keys of the two maps
     private static <K> Set<K> getAllKeys(Map<K, ?> orig, Map<K, ?> changed) {
         Set<K> allKeys = new HashSet<K>(orig.keySet());
         allKeys.addAll(changed.keySet());
         return allKeys;
     }
 
+    // Construct a string representation of the given collection
     public static <T> String collectionToString(Collection<T> list, boolean newLines) {
         StringBuilder b = new StringBuilder();
         for (T value : list) {
@@ -171,39 +145,9 @@ public class CommonUtils {
         return b.toString();
     }
 
-    public static void printPhase(String phase) {
-        System.out.println(CommonConstants.PHASE_MARKER + phase);
-    }
-
-    public static <K, V> void putList(K key, V value, Map<K, List<V>> map) {
-        List<V> list = map.get(key);
-        if (list == null) {
-            list = new ArrayList<V>();
-            map.put(key, list);
-        }
-        list.add(value);
-    }
-
-    public static <T> List<T> filter(Collection<T> list, Function<T, Boolean> filter) {
-        return list.stream().filter(t -> filter.apply(t)).collect(Collectors.toList());
-    }
-
-    public static <K, V> List<K> filterKeys(Map<K, V> map, BiFunction<K, V, Boolean> filter) {
-        return map.keySet().stream().filter(k -> filter.apply(k, map.get(k))).collect(Collectors.toList());
-    }
-
+    // Maps the given list into another list with the given mapper function
     public static <T, R> List<R> mapList(Collection<T> list, Function<T, R> mapper) {
         return list.stream().map(t -> mapper.apply(t)).collect(Collectors.toList());
-    }
-
-    @SuppressWarnings("unchecked")
-    public static <S, T extends S> List<T> filter(List<S> list, Class<T> clazz) {
-        List<T> ret = new ArrayList<T>();
-        list.forEach(s -> {
-            if (s.getClass().isAssignableFrom(clazz))
-                ret.add((T) s);
-        });
-        return ret;
     }
 
     @FunctionalInterface
@@ -221,15 +165,17 @@ public class CommonUtils {
         public void accept(A a, B b, C c);
     }
 
-    @FunctionalInterface
-    public interface QuadConsumer<A, B, C, D> {
-        public void accept(A a, B b, C c, D d);
+    // Print a notification of a single phase execution
+    public static void printPhase(String phase) {
+        System.out.println(CommonConstants.PHASE_MARKER + phase);
     }
 
+    // Print an error message
     public static void printError(String error) {
         System.err.println(CommonConstants.ERROR_MARKER + error);
     }
 
+    // Print the header message of a program execution
     public static void printTitle(String title) {
         System.out.println("\n" + CommonUtils.decorateOutput("Running " + title, CommonConstants.TITLE_DECOR_MARKER)  + "\n");
     }
